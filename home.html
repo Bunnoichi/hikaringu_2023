@@ -227,9 +227,9 @@
       <div class="description_content">
          各種事項について、以下の人間が責任者です。聞きたいことや困ったことがあったら連絡ください。
          <ul>
-            <li>ひかリング取扱；ユース部会学生・<?  output.append(array.getValues()[0][0]); ?></li>
-            <li>本登録システム；ユース部会学生・<?  output.append(array.getValues()[1][0]); ?></li>
-            <li>金銭取扱・緊急；ユース部会長・<?  output.append(array.getValues()[2][0]); ?></li>
+            <li>ひかリング取扱；ユース部会学生・<?  output.append(array_name.getValues()[0][0]); ?></li>
+            <li>本登録システム；ユース部会学生・<?  output.append(array_name.getValues()[1][0]); ?></li>
+            <li>金銭取扱・緊急；ユース部会長・<?  output.append(array_name.getValues()[2][0]); ?></li>
          </ul>
          <p>いつでもきいてね♡</p>
       </div>
@@ -241,23 +241,28 @@
       <div class="earning_display_parent">
          <div class="earning_display_child" id="earning_display_child_R">
             <span id="earning_display_child_R_span"><?=  getEarnings()[0][0]; ?></span>
-            <span class="earning_display_child_span">本</span>
+            <span class="earning_display_child_span">本 ／入荷数</span>
+            <span id="earning_display_child_R_ArraivalQuantity"><?  output.append(array_in.getValues()[0][0]); ?></span>
          </div>
          <div class="earning_display_child" id="earning_display_child_Y">
             <span id="earning_display_child_Y_span"><?=  getEarnings()[1][0]; ?></span>
-            <span class="earning_display_child_span">本</span>
+            <span class="earning_display_child_span">本 ／ 入荷数</span>
+            <span id="earning_display_child_Y_ArraivalQuantity"><?  output.append(array_in.getValues()[1][0]); ?></span>
          </div>
          <div class="earning_display_child" id="earning_display_child_B">
             <span id="earning_display_child_B_span"><?=  getEarnings()[2][0]; ?></span>
-            <span class="earning_display_child_span">本</span>
+            <span class="earning_display_child_span">本 ／ 入荷数</span>
+            <span id="earning_display_child_B_ArraivalQuantity"><?  output.append(array_in.getValues()[2][0]); ?></span>
          </div>
          <div class="earning_display_child" id="earning_display_child_Ra">
             <span id="earning_display_child_Ra_span"><?=  getEarnings()[3][0]; ?></span>
-            <span class="earning_display_child_span">本</span>
+            <span class="earning_display_child_span">本 ／ 入荷数</span>
+            <span id="earning_display_child_Ra_ArraivalQuantity"><?  output.append(array_in.getValues()[3][0]); ?></span>
          </div>
          <div class="earning_display_child" id="earning_display_child_W">
             <span id="earning_display_child_W_span"><?=  getEarnings()[4][0]; ?></span>
-            <span class="earning_display_child_span">本</span>
+            <span class="earning_display_child_span">本 ／ 入荷数</span>
+            <span id="earning_display_child_W_ArraivalQuantity"><?  output.append(array_in.getValues()[4][0]); ?></span>
          </div>
       </div>
       <button id="color_amount_reset" onclick="earning_display_update()">配布状況を更新</button>
@@ -333,10 +338,10 @@
    <h2>このサイト・記録について</h2>
    <div class="content">
       <p>昨年度に引き続き、今年度もひかリングの配布を行うこととなりました。昨年度のひかリングの位置づけが「寄付に対する返礼」であったのに対し、今年度は「各種企画・限定エリアへのパス」という位置づけになっており、それに伴って規模も10倍程度にパワーアップしています。</p>
-      <p>昨年度のひかリング入荷本数は1500本でした。記録についてはA4記録用紙26枚を要し、PCへのデータ入力は<?  output.append(array.getValues()[3][0]); ?>が1人でやって正味5,6時間ほどかかっため、管理・集計の観点より、登録フェーズから電子化したいわねという背景がありました。</p>
+      <p>昨年度のひかリング入荷本数は1500本でした。記録についてはA4記録用紙26枚を要し、PCへのデータ入力は<?  output.append(array_name.getValues()[3][0]); ?>が1人でやって正味5,6時間ほどかかっため、管理・集計の観点より、登録フェーズから電子化したいわねという背景がありました。</p>
       <p>同様の登録システムとしてGoogle Formが挙げられます。Google Formによる登録は保守運用が簡便な反面、「回答を送信しました」という画面遷移や入力文字の再利用性の無さなど、１人のユーザーが大量のレコードを送信するうえでエコではないシステムです。</p>
       <p>そこで、今回はGoogleが提供しているクラウドベースのGoogle Apps Scriptを用いて登録フォームを独自に作成しました。JavaScriptベースのGoogle Script、HTML、CSS、JSという基本的なマークアップ・プログラミング言語を用いてコーディングを行うため、比較的容易に開発出来るほか、自由度や拡張性に富んでいます。この他、独自のWebサーバを立てるよりも経済的・時間的コスト、規模感を小さく抑えられるという面も、このプラットフォームを用いた利点とするところです。</p>
-      <p>学生の皆様には昨年も同様に記録をお願いしておりました。皆様のお力添えもあり、有意なデータ・分析を実行委員会に報告をすることが出来ました。今年度の規模拡大には昨年のデータが土台にある旨を実行委員会の<?  output.append(array.getValues()[4][0]); ?>特別顧問からも仰せつかっており、ひとえに、ご協力いただいた学生の皆様のおかげであると痛感しています。本当にありがとうございました。</p> 
+      <p>学生の皆様には昨年も同様に記録をお願いしておりました。皆様のお力添えもあり、有意なデータ・分析を実行委員会に報告をすることが出来ました。今年度の規模拡大には昨年のデータが土台にある旨を実行委員会の<?  output.append(array_name.getValues()[4][0]); ?>特別顧問からも仰せつかっており、ひとえに、ご協力いただいた学生の皆様のおかげであると痛感しています。本当にありがとうございました。</p> 
       <p>次年度以降のページェントのためにも、改めてのデータ記録を伏してお願い申し上げます。</p>
       <p>なお、点灯期間（企画）終了後、このサイトは爆破します。</p>
    </div>
@@ -351,7 +356,7 @@
       <p>本システム構築にあたり、今年度ひかリング企画代表の新井田夏未さん、そしてデバッグやフィードバック等に付き合ってくれたユース部会のメンバーに感謝申し上げます。いつもありがとう。</p>
       <p>また、プラットフォーム選定について助言をしてくれた高専時代の友人Nにも、この場を借りて感謝を申し上げます。</p>
       <p>最後に、記録をいただく全ての学生メンバー、そして当日ボランティアの皆様に今一度の御礼を申し上げ、謝辞とします。</p>
-      <p>作成担当　<?  output.append(array.getValues()[1][0]); ?></p>
+      <p>作成担当　<?  output.append(array_name.getValues()[1][0]); ?></p>
    </div>
 
   </body>
