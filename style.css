@@ -514,3 +514,9 @@ h2 {
    font-size: 95%;
    color: #4d4d4d;
 }
+
+#author {
+   text-align: right;
+   margin-top: 30px;
+   margin-right: 8%;
+}
