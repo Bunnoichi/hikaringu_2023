@@ -484,7 +484,7 @@ h2 {
 .Messeage_display {
    display: block;
    position: relative;
-   border: 3px solid #033;
+   border: 3px solid rgba(14, 136, 0, 0.866);
    border-radius: 5px;
    margin: 20px 0;
    padding: 20px 20px 5px 20px;
@@ -493,9 +493,24 @@ h2 {
    content: "伝言板";
    position: absolute;
    background-color: #fff;
-   color: #033;
+   color: rgb(8, 82, 0);
    font-weight: bold;
    left: 20px;
    top: -23px;
    padding: 10px;
+}
+
+.Messeage_display #messeage_content {
+   font-size: 110%;
+   font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+}
+
+.Messeage_display #messeage_meta_data_speaker { 
+   font-size: 107%;
+   color: #4d4d4d;
+}
+
+.Messeage_display #messeage_meta_data_data { 
+   font-size: 95%;
+   color: #4d4d4d;
 }
