@@ -438,7 +438,7 @@ h2 {
 
 
   /* 配布本数表示部分 */
-  .earning_display_parent {
+  #earning_display_parent {
    display: block;
    margin: 10px;
 }

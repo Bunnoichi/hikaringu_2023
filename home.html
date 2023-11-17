@@ -238,7 +238,14 @@
    <h2>ひかリングの売れ行きを見る</h2>
    <div class="content">
       <p>ひかリングの配布状況をここから確認できます。リアルタイムじゃないけど、画面リロードすると最新の情報になります。</p>
-      <div class="earning_display_parent">
+      <fieldset class="checkbox-001">
+         <label>
+            <input type="checkbox" id="checkbox_show_eaarning_display" 
+            onclick="show_eaarning_display()" checked>
+            配布状況を表示する！
+         </label>
+      </fieldset>
+      <div id="earning_display_parent">
          <div class="earning_display_child" id="earning_display_child_R">
             <span id="earning_display_child_R_span"><?=  getEarnings()[0][0]; ?></span>
             <span class="earning_display_child_span">本 ／入荷数</span>
@@ -265,8 +272,8 @@
             <span id="earning_display_child_W_ArraivalQuantity"><?  output.append(array_in.getValues()[4][0]); ?></span>
          </div>
          <div id="updated_time"></div>
+         <button id="color_amount_reset" onclick="earning_display_update()">配布状況を更新</button>
       </div>
-      <button id="color_amount_reset" onclick="earning_display_update()">配布状況を更新</button>
       <p><a href="https://docs.google.com/spreadsheets/d/1G0sJRxNn67iJQOWuoRf7CKXnBJKJf3SASZeDKZIAAZo/edit?usp=drive_link" target="_blank">このリンクから、ひかリングの現在の売れ行きが確認できます</a>。ぜひ見てみましょう。</p>
       <p>元のファイルは、学生共有ドライブの「企画等 ＜ 2023企画」にある「ひかリング配布管理試験シート」にあり、本システムはこのスプレッドシートに紐づいています。当日ボランティアの方はスミマセン、アクセス権を配布してないです。見せてもらってください。</p>
    </div>

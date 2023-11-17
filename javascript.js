@@ -204,6 +204,17 @@ function input_and_errorCheck(){
    }
 }
 
+// 配布状況の表示非表示に関する関数
+function show_eaarning_display(){
+	if(document.getElementById("checkbox_show_eaarning_display").checked == false){
+		document.getElementById('earning_display_parent').style.display ="none";
+      console.log('false');
+	}else{
+		document.getElementById('earning_display_parent').style.display ="block";
+      console.log('checked');
+	}
+}
+
 // 登録
 google.script.run
    function submit() {
