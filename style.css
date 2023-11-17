@@ -478,3 +478,24 @@ h2 {
 #updated_time {
    padding-left: 5%;
 }
+
+/*囲み枠*/
+
+.Messeage_display {
+   display: block;
+   position: relative;
+   border: 3px solid #033;
+   border-radius: 5px;
+   margin: 20px 0;
+   padding: 20px 20px 5px 20px;
+}
+.Messeage_display::before {
+   content: "伝言板";
+   position: absolute;
+   background-color: #fff;
+   color: #033;
+   font-weight: bold;
+   left: 20px;
+   top: -23px;
+   padding: 10px;
+}

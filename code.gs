@@ -1,4 +1,4 @@
-spreadsheed_id_name = '1G0sJRxNn67iJQOWuoRf7CKXnBJKJf3SASZeDKZIAAZo'
+spreadsheed_id_name = '1-bV2iRK0RzWQ9yS_cYtSWV9A-bXZpplEqCP6Rub9K0A'
 
 function doGet() {
   const htmlOutput = HtmlService.createTemplateFromFile('index');
@@ -12,7 +12,15 @@ function doGet() {
 
   // 入荷数を取得
   htmlOutput.array_in = targetSheet.getRange("C7:C11");
-  Logger.log(htmlOutput.array_in.getValues());  
+
+  // 伝言を取得
+  var targetSheet = spreadSheet.getSheetByName('messeage');
+  var todayStr_date = Utilities.formatDate(targetSheet.getRange(targetSheet.getLastRow(), 1,1,4).getValues()[0][0], 'JST', 'yyyy-MM-dd');
+  var todayStr_time = Utilities.formatDate(targetSheet.getRange(targetSheet.getLastRow(), 1,1,4).getValues()[0][1], 'JST', 'HH:mm:ss');
+  var array_messeage = [todayStr_date, todayStr_time, targetSheet.getRange(targetSheet.getLastRow(), 3,1,2).getValues()[0][0], targetSheet.getRange(targetSheet.getLastRow(), 3,1,2).getValues()[0][1]];
+  Logger.log(array_messeage);
+  htmlOutput.array_messeage = array_messeage;
+
 
   htmlOutput_evaluated = htmlOutput.evaluate();
   htmlOutput_evaluated.addMetaTag('viewport', 'width=device-width, initial-scale=1');
@@ -23,6 +31,10 @@ function doGet() {
 function setSsValue(value) {
   const sh = SpreadsheetApp.openById(spreadsheed_id_name);
   sh.appendRow(value);
+}
+
+function getMesseage_Switch() {
+  return SpreadsheetApp.openById(spreadsheed_id_name).getSheetByName('informations').getRange("B13").getValue();
 }
 
 function getEarnings() {
