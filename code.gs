@@ -23,6 +23,7 @@ function doGet() {
 
 
   htmlOutput_evaluated = htmlOutput.evaluate();
+  htmlOutput_evaluated.setTitle('ひかリング記録');
   htmlOutput_evaluated.addMetaTag('viewport', 'width=device-width, initial-scale=1');
 
   return htmlOutput_evaluated;
