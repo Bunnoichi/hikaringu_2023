@@ -436,4 +436,90 @@
      padding: 10px;
      border: solid 1px #ffffff;
      }
+
+  /* 配布本数表示部分 */
+    #earning_display_parent {
+    display: block;
+    margin: 10px;
+  }
+
+  .earning_display_child {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 200%;
+    color: #6f6f6f;
+  }
+  #earning_display_child_R {
+    border: 1px solid #ff0000;
+    background-color: #ff353540;
+  }
+  #earning_display_child_Y {
+    border: 1px solid #e0bd33;
+    background-color: #ffd90040;
+  }
+  #earning_display_child_B {
+    border: 1px solid #2589d0;
+    background-color: #2589d020;
+  }
+  #earning_display_child_W {
+    border: 1px solid #12121298;
+    background-color: #ffffff40;
+  }
+  #earning_display_child_Ra {
+    border: 1px solid #0000007e;
+    background: linear-gradient(to right,#f59090,#fcd7a1,#fff9b1,#a5d4ad,#a3bce2,#a59aca,#cfa7cd);
+  }
+  .earning_display_child .earning_display_child_span {
+    font-size: 50%;
+  }
+
+  #updated_time {
+    padding-left: 5%;
+    margin: 10px;
+  }
+
+  /*囲み枠*/
+
+  .Messeage_display {
+    display: block;
+    position: relative;
+    border: 3px solid rgba(14, 136, 0, 0.866);
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 20px 20px 5px 20px;
+  }
+  .Messeage_display::before {
+    content: "伝言板";
+    position: absolute;
+    background-color: #fff;
+    color: rgb(8, 82, 0);
+    font-weight: bold;
+    left: 20px;
+    top: -23px;
+    padding: 10px;
+  }
+
+  .Messeage_display #messeage_content {
+    font-size: 110%;
+    font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+  }
+
+  .Messeage_display #messeage_meta_data_speaker { 
+    font-size: 107%;
+    color: #4d4d4d;
+    margin-bottom: 4px;
+  }
+
+  .Messeage_display #messeage_meta_data_data { 
+    font-size: 95%;
+    color: #4d4d4d;
+  }
+
+  #author {
+    text-align: right;
+    margin-top: 30px;
+    margin-right: 8%;
+  }
  </style>
