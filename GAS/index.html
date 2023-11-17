@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+<html>
+  <head>
+    <base target="_top">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <script src="javascript.js"></script> -->
+   <?!= HtmlService.createHtmlOutputFromFile("css").getContent(); ?>
+  </head>
+  <body>
+    <!-- Hello, World! -->
+    <h1>ひかリング配布登録ページ</h1>
+    <div class="warning">
+       このページは関係者用サイトです。決して組織外の人間にリンクを漏らさぬよう、お願い申し上げます。
+    </div>
+    <div class="question">
+       <div class="question_overall">
+          <div class="question_title">記録者情報</div>
+          <div class="question_description">
+             あだ名でもいいけど、誰かわかる名前にしてね。
+            </div>
+            <div class="question_content">
+               <label for="input_handler_name">記録者氏名：</label><input type="text" id="input_handler_name" placeholder="氏名" class="textbox"><br>
+            <fieldset class="checkbox-001">
+               <label>
+                  <input type="checkbox" id="input_checked_volunteer" >
+                  わたし当日ボランティア！
+               </label>
+            </fieldset>
+         </div>
+      </div>
+      
+      <div class="question_overall">
+         <div class="question_title">配布場所</div>
+         <div class="question_description">
+            ステーション、回廊、デッキ以外の場合は「その他」にして、最後にある「特記事項」に記してください。
+         </div>
+         <div class="question_content">
+            <fieldset class="radio-003">
+               <label>
+                  <input type="radio" name="spot_choice"  id="spot_station" value="station"/>
+                  おもてなしステーション
+               </label>
+               <label>
+                  <input type="radio" name="spot_choice" id="spot_castle" value="castle"/>
+                  光の回廊（キャッスル）
+               </label>
+               <label>
+                  <input type="radio" name="spot_choice" id="spot_deck" value="deck"/>
+                  スマイル☆デッキ
+               </label>
+               <label>
+                  <input type="radio" name="spot_choice" id="spot_otherwise" value="otherwise"/>
+                  その他
+               </label>
+            </fieldset>
+         </div>
+      </div>
+      
+      <div class="question_overall">
+         <div class="question_title">来場者情報</div>
+         <div class="question_description">
+            下のボタンを押すと来場者の区分を確認できます。イレギュラーもあるかと思うので、適宜上手くやってください。
+            <fieldset class="checkbox-001">
+               <label>
+                  <input type="checkbox" id="show_target_classification_flexbox" onclick="show_target_classification_flexbox()">
+                  来場者の分類を表示
+               </label>
+            </fieldset>
+            <div id="target_classification_flexbox">
+               <table class="design12">
+                  <tr>
+                     <th>客層</th>
+                     <th>どんな人</th>
+                  </tr>
+                  <tr>
+                     <td>ティーン</td>
+                     <td>大学生ぐらいまで。</td>
+                  </tr>
+                  <tr>
+                     <td>家族連れ（若）</td>
+                     <td>小学生ぐらいまでを連れた家族</td>
+                  </tr>
+                  <tr>
+                     <td>家族連れ（その他）</td>
+                     <td>ティーン、家族連れ（若）以外の家族連れ。ただし、老夫婦は除く。</td>
+                  </tr>
+                  <tr>
+                     <td>大人たち</td>
+                     <td>家族連れ以外の大人。ソロも集団も。</td>
+                  </tr>
+                  <tr>
+                     <td>シニア</td>
+                     <td>おじいちゃん、おばあちゃん、老夫婦。</td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+         <div class="question_content">
+            <fieldset class="radio-003">
+               <label>
+                  <input type="radio" name="target_choice"  id="target_teen" value="teen"/>
+                  ティーン
+               </label>
+               <label>
+                  <input type="radio" name="target_choice" id="target_yaf" value="yaf"/>
+                  家族連れ（若）
+               </label>
+               <label>
+                  <input type="radio" name="target_choice" id="target_adult" value="adult"/>
+                  家族連れ（その他）
+               </label>
+               <label>
+                  <input type="radio" name="target_choice" id="target_adult" value="adult"/>
+                  大人たち
+               </label>
+               <label>
+                  <input type="radio" name="target_choice" id="target_senior" value="senior"/>
+                  シニア
+               </label>
+            </fieldset>
+         </div>
+      </div>
+      <div class="question_overall">
+         <div class="question_title">配布本数</div>
+         <div class="question_description">
+            お渡しした色の本数分だけ、対応する色のボタンを押してください。赤2本、虹色1本渡したなら、「あかいろ」を2回、「にじいろ」を1回押す、みたいな感じで。必ず、色と本数の対応を確認してください。<br>「間違えた！」って場合は、下のリセットボタンでクリアできます。
+            <fieldset class="checkbox-001">
+               <label>
+                  <input type="checkbox" onclick="box_show()" id="box_show">
+                  ボックス表示
+               </label>
+            </fieldset>
+         </div>
+         <div class="question_content">
+            <fieldset class="radio-002">
+               <label id="color_P">
+                  <input type="radio" value="color_P" name="color_choice" onclick="color_counter('color_P')"/>
+                  あかいろ
+                  <span class="color_amount" id="color_P_amount"></span>
+               </label>
+               <label id="color_Y">
+                  <input type="radio" value="color_Y" name="color_choice" onclick="color_counter('color_Y')"/>
+                  きいろ
+                  <span class="color_amount" id="color_Y_amount"></span>
+               </label>
+               <label id="color_B">
+                  <input type="radio" value="color_B" name="color_choice" onclick="color_counter('color_B')"/>
+                  あおいろ
+                  <span class="color_amount" id="color_B_amount"></span>
+               </label>
+               <label id="color_Ra">
+                  <input type="radio" value="color_Ra" name="color_choice" onclick="color_counter('color_Ra')"/>
+                  にじいろ
+                  <span class="color_amount" id="color_Ra_amount"></span>
+               </label>
+               <label id="color_W">
+                  <input type="radio" value="color_W" name="color_choice" onclick="color_counter('color_W')"/>
+                  しろいろ
+                  <span class="color_amount" id="color_W_amount"></span>
+               </label>
+               <div class="color_amount_flex_parent">
+                  <div class="color_amount_flex_child" id="color_amount_flex_child_P">
+                     <span id="color_amount_flex_child_P_span"></span>
+                     <span class="color_amount_flex_child_span">本</span>
+                  </div>
+                  <div class="color_amount_flex_child" id="color_amount_flex_child_Y">
+                     <span id="color_amount_flex_child_Y_span"></span>
+                     <span class="color_amount_flex_child_span">本</span>
+                  </div>
+                  <div class="color_amount_flex_child" id="color_amount_flex_child_B">
+                     <span id="color_amount_flex_child_B_span"></span>
+                     <span class="color_amount_flex_child_span">本</span>
+                  </div>
+               </div>
+               <div class="color_amount_flex_parent">
+                  <div class="color_amount_flex_child" id="color_amount_flex_child_Ra">
+                     <span id="color_amount_flex_child_Ra_span"></span>
+                     <span class="color_amount_flex_child_span">本</span>
+                  </div>
+                  <div class="color_amount_flex_child" id="color_amount_flex_child_W">
+                     <span id="color_amount_flex_child_W_span"></span>
+                     <span class="color_amount_flex_child_span">本</span>
+                  </div>
+               </div>
+
+            </fieldset>
+            <button id="color_amount_reset" onclick="color_counter_reset()">配布本数をリセット</button>
+         </div>
+      </div>
+   </div>
+      <div class="question_overall">
+         <div class="question_title">寄付額</div>
+         <div class="question_description">
+            <p>
+               今回、ひかリングは1本300円でのお渡しです。前項「配布情報」で入力された本数と「寄附額」の入力欄はリンクしているため、基本的に操作不要です。
+            </p>
+            <p>
+               もし1本あたり300円以上の額（寄付）を頂いたら、頂いた総額（ひかリング代＋寄付として）を入力してください。
+            </p>
+         </div>
+         <div class="question_content">
+            <label for="input_donation_amount">寄付額（円）</label><input type="number" class="textbox" id="input_donation_amount" min="0" value="0">
+         </div>
+      </div>
+      <div class="question_overall">
+         <div class="question_title">その他特記事項</div>
+         <div class="question_description">
+            「子供がありえんくらい喜んでた」とか「酔っ払いうるさかった」とか、嬉しいことムカつくことなんでも書いてください。集計確認のため、毎日見る努力はしてます。
+         </div>
+         <div class="question_content">
+            <div class="question_description"></div>
+            <textarea name="" id="input_commentary" placeholder="特記事項・意見・感想・暇つぶし・愛のポエムなど" class="textarea" rows="3"></textarea>
+         </div>
+      </div>
+   </div>
+   <input type="button" value="この内容で登録" id="submit_button" onclick="submit()"></button>
+
+   <div class="container" id="container">
+      <div id="container_1"></div>
+      <div id="container_2"></div>
+      <div id="container_3"></div>
+   </div>
+
+   <h2>問い合わせ</h2>
+   <div class="content">
+      <div class="description_content">
+         各種事項について、以下の人間が責任者です。聞きたいことや困ったことがあったら連絡ください。
+         <ul>
+            <li>ひかリング取扱；ユース部会学生・<?  output.append(array.getValues()[0][0]); ?></li>
+            <li>本登録システム；ユース部会学生・<?  output.append(array.getValues()[1][0]); ?></li>
+            <li>金銭取扱・緊急；ユース部会長・<?  output.append(array.getValues()[2][0]); ?></li>
+         </ul>
+         <p>いつでもきいてね♡</p>
+      </div>
+   </div>
+
+
+   <h2>このページの使い方</h2>
+   <div class="content">
+      <div class="step"><span class="step_num">Step1</span>記録者情報</div>
+      <div class="description_content">
+         まず、記録してくれるあなたの名前を記入してください。名字だけとかあだ名でもいいけど、誰かわかるようにしてね。当日ボランティアの方は、「わたし当日ボランティ！」チェックマークも入れてくださいませ。
+      </div>
+      <div class="step"><span class="step_num">Step2</span>配布場所</div>
+      <div class="description_content">
+         ひかリングを配布した場所を選択してください。「その他」を選択した場合は、「その他特記事項」に配布場所を明記してください。
+      </div>
+      <div class="step" id="description_target_description"><span class="step_num">Step3</span>来場者情報</div>
+      <div class="description_content">
+         来年度以降のためのデータ分析・総括のため、来場者の客層記録もお願いしています。客層分類は以下になります。
+         <table class="design12">
+            <tr>
+               <th>客層</th>
+               <th>どんな人</th>
+            </tr>
+            <tr>
+               <td>ティーン</td>
+               <td>大学生ぐらいまで。</td>
+            </tr>
+            <tr>
+               <td>家族連れ（若）</td>
+               <td>小学生ぐらいまでを連れた家族</td>
+            </tr>
+            <tr>
+               <td>家族連れ（その他）</td>
+               <td>ティーン、家族連れ（若）以外の家族連れ。ただし、老夫婦は除く。</td>
+            </tr>
+            <tr>
+               <td>大人たち</td>
+               <td>家族連れ以外の大人。ソロも集団も。</td>
+            </tr>
+            <tr>
+               <td>シニア</td>
+               <td>おじいちゃん、おばあちゃん、老夫婦。</td>
+            </tr>
+         </table>
+         以上の分類になりますが、適宜、上手くやってください。
+      </div>
+      <div class="step"><span class="step_num">Step4</span>配布情報</div>
+      <div class="description_content">
+         <p>次に、お渡ししたひかリングの色と、その本数を記録してください。こちらは、色のボタンを押した回数がその色のひかリングの配布数となります。もし押し間違えた場合は、下の「色本数をリセット」を押すことでクリア出来ます。</p>
+         <p>また、「ボックス表示」のチェックを入れると、視認性がちょっとアガるかも。</p>
+      </div>
+      <div class="step"><span class="step_num">Step5</span>寄付額</div>
+      <div class="description_content">
+         次に、寄付額です。寄附額の欄は「配布情報」で入力された本数とリンクしているため、基本的に操作不要です。必要以上の額（ご寄付）を頂いたら入力してください。
+      </div>
+      <div class="step"><span class="step_num">Step6</span>その他特記事項</div>
+      <div class="description_content">
+         最後に、いわゆる備考欄です。特筆事項や感想があれば書いてください。
+      </div>
+      <div class="step"><span class="step_num">Step7</span>登録</div>
+      <div class="description_content">
+         あとは、書いてくれたデータをスプレッドシートに送りつけるだけです。成功すると下が緑色になって、失敗してると赤くなります。
+      </div>
+      <div class="step"><span class="step_num">Step8</span> 次の方〜</div>
+      <div class="description_content">
+         あとはこれの繰り返しで、Step2に戻ります。名前とボランティアのチェック、配布場所の中身は消えないですが、それ以外は勝手に消えてくれます（リロードすると全消えします）。次の方を「超絶笑顔で」迎えましょう♡
+      </div>
+   </div>
+
+   <h2>ひかリングの売れ行きを見る</h2>
+   <div class="content">
+      <p><a href="https://docs.google.com/spreadsheets/d/1G0sJRxNn67iJQOWuoRf7CKXnBJKJf3SASZeDKZIAAZo/edit?usp=drive_link" target="_blank">このリンクから、ひかリングの現在の売れ行きが確認できます</a>。ぜひ見てみましょう。</p>
+      <p>元のファイルは、学生共有ドライブの「企画等 ＜ 2023企画」にある「ひかリング配布管理試験シート」にあり、本システムはこのスプレッドシートに紐づいています。当日ボランティアの方はスミマセン、アクセス権を配布してないです。見せてもらってください。</p>
+   </div>
+   <h2>このサイト・記録について</h2>
+   <div class="content">
+      <p>昨年度に引き続き、今年度もひかリングの配布を行うこととなりました。昨年度のひかリングの位置づけが「寄付に対する返礼」であったのに対し、今年度は「各種企画・限定エリアへのパス」という位置づけになっており、それに伴って規模も10倍程度にパワーアップしています。</p>
+      <p>昨年度のひかリング入荷本数は1500本でした。記録についてはA4記録用紙26枚を要し、PCへのデータ入力は<?  output.append(array.getValues()[3][0]); ?>が1人でやって正味5,6時間ほどかかっため、管理・集計の観点より、登録フェーズから電子化したいわねという背景がありました。</p>
+      <p>同様の登録システムとしてGoogle Formが挙げられます。Google Formによる登録は保守運用が簡便な反面、「回答を送信しました」という画面遷移や入力文字の再利用性の無さなど、１人のユーザーが大量のレコードを送信するうえでエコではないシステムです。</p>
+      <p>そこで、今回はGoogleが提供しているクラウドベースのGoogle Apps Scriptを用いて登録フォームを独自に作成しました。JavaScriptベースのGoogle Script、HTML、CSS、JSという基本的なマークアップ・プログラミング言語を用いてコーディングを行うため、比較的容易に開発出来るほか、自由度や拡張性に富んでいます。この他、独自のWebサーバを立てるよりも経済的・時間的コスト、規模感を小さく抑えられるという面も、このプラットフォームを用いた利点とするところです。</p>
+      <p>学生の皆様には昨年も同様に記録をお願いしておりました。皆様のお力添えもあり、有意なデータ・分析を実行委員会に報告をすることが出来ました。今年度の規模拡大には昨年のデータが土台にある旨を実行委員会の<?  output.append(array.getValues()[4][0]); ?>特別顧問からも仰せつかっており、ひとえに、ご協力いただいた学生の皆様のおかげであると痛感しています。本当にありがとうございました。</p> 
+      <p>次年度以降のページェントのためにも、改めてのデータ記録を伏してお願い申し上げます。</p>
+      <p>なお、点灯期間（企画）終了後、このサイトは爆破します。</p>
+   </div>
+
+   <h2>GitHub</h2>
+   <div class="content">
+      <a href="https://github.com/Bunnoichi/hikaringu_2023" target="_blank">https://github.com/Bunnoichi/hikaringu_2023</a>
+   </div>
+
+   <h2>謝辞</h2>
+   <div class="content">
+      <p>本システム構築にあたり、今年度ひかリング企画代表の新井田夏未さん、そしてデバッグやフィードバック等に付き合ってくれたユース部会のメンバーに感謝申し上げます。いつもありがとう。</p>
+      <p>また、プラットフォーム選定について助言をしてくれた高専時代の友人Nにも、この場を借りて感謝を申し上げます。</p>
+      <p>最後に、記録をいただく全ての学生メンバー、そして当日ボランティアの皆様に今一度の御礼を申し上げ、謝辞とします。</p>
+      <p>作成担当　<?  output.append(array.getValues()[1][0]); ?></p>
+   </div>
+
+  </body>
+  <script>
+    const id_name_array = [
+      'input_handler_name',
+      'input_checked_volunteer',
+      'input_time_stamp_date',
+      'input_time_stamp_time',
+      'target_choice',
+      'input_donation_amount',
+      'color_choice',
+      'input_commentary',
+      'spot_choice'
+    ];
+
+    // ラジオボタンの選択要素を返す
+    function radioButton(name) {
+      var elements = document.getElementsByName(name);
+
+      for ( var a="", i=elements.length; i--; ) {
+          if ( elements[i].checked ) {
+            var a = elements[i].value ;
+            break ;
+          }
+      }
+
+      if ( a === "" ) {
+          return '';
+      } else {
+          return a;
+      }
+    }
+
+    // ボックス表示に関する関数
+    // 「ボックス表示」にチェックを入れたとき、色本数のフレックスボックスを表示
+    function box_show(){
+      if(document.getElementById("box_show").checked == false){
+        document.getElementsByClassName('color_amount_flex_parent')[0].style.display ="none";
+        document.getElementsByClassName('color_amount_flex_parent')[1].style.display ="none";
+          console.log('none');
+      }else{
+        document.getElementsByClassName('color_amount_flex_parent')[0].style.display ="flex";
+        document.getElementsByClassName('color_amount_flex_parent')[1].style.display ="flex";
+          console.log('checked');
+      }
+    }
+
+    // 来場者分類のフレックスボックス表示に関する関数
+    function show_target_classification_flexbox(){
+      if(document.getElementById("show_target_classification_flexbox").checked == false){
+        document.getElementById('target_classification_flexbox').style.display ="none";
+          console.log('false');
+      }else{
+        document.getElementById('target_classification_flexbox').style.display ="block";
+          console.log('checked');
+      }
+    }
+
+    // 配布した色の本数をカウント
+    function color_counter(color) {
+
+      var color_each_amount;
+      var donation_amount = document.getElementById('input_donation_amount');
+
+      switch (color) {
+      case 'color_P':
+          color_each_amount = document.getElementById('color_P_amount');
+          document.getElementById("color_amount_flex_child_P_span").textContent = Number(color_each_amount.textContent) + 1;
+          break;
+          
+      case 'color_Y':
+          color_each_amount = document.getElementById('color_Y_amount');
+          document.getElementById('color_amount_flex_child_Y_span').textContent = Number(color_each_amount.textContent) + 1;
+          break;
+
+      case 'color_B':
+          color_each_amount = document.getElementById('color_B_amount');
+          document.getElementById('color_amount_flex_child_B_span').textContent = Number(color_each_amount.textContent) + 1;
+          break;
+
+      case 'color_W':
+          color_each_amount = document.getElementById('color_W_amount');
+          document.getElementById('color_amount_flex_child_W_span').textContent = Number(color_each_amount.textContent) + 1;
+          break;
+      
+      case 'color_Ra':
+          color_each_amount = document.getElementById('color_Ra_amount');
+          document.getElementById('color_amount_flex_child_Ra_span').textContent = Number(color_each_amount.textContent) + 1;
+          break;
+
+      default:
+          console.log('ERROR: color_counter(color).');
+          console.log(color)
+          break;
+      }
+      donation_amount.value = Number(donation_amount.value) + 300;
+      color_each_amount.textContent = Number(color_each_amount.textContent) + 1;
+    }
+
+    // 配布本数をリセット
+    function color_counter_reset(){
+      document.getElementById('color_P_amount').textContent = '';
+      document.getElementById('color_B_amount').textContent = '';
+      document.getElementById('color_Y_amount').textContent = '';
+      document.getElementById('color_W_amount').textContent = '';
+      document.getElementById('color_Ra_amount').textContent = '';
+      document.getElementById('color_amount_flex_child_P_span').textContent = '';
+      document.getElementById('color_amount_flex_child_Y_span').textContent = '';
+      document.getElementById('color_amount_flex_child_B_span').textContent = '';
+      document.getElementById('color_amount_flex_child_W_span').textContent = '';
+      document.getElementById('color_amount_flex_child_Ra_span').textContent = '';
+      document.getElementById('input_donation_amount').value = 0;
+      remove_radioButton(id_name_array[6]);
+    }
+
+    // ラジオボタンの選択をクリアにする
+    function remove_radioButton(name) {
+      var elements = document.getElementsByName(name);
+
+      // 選択状態の値を取得
+      for ( var a="", i=elements.length; i--; ) {
+      elements[i].checked = false;
+      }
+    }
+
+    function remove_content() {
+      remove_radioButton(id_name_array[4]);
+      remove_radioButton(id_name_array[6]);
+      document.getElementById(id_name_array[7]).value = '';
+    }
+
+    // 登録ボタンリクエスト時、各変数を配列にして返却
+    // 不足分がある場合は不足配列を返却
+    function input_and_errorCheck(){
+      var value;
+      var alert_value = [];
+      var return_value = [];
+
+      var now = new Date();
+
+      // 名前がちゃんと記録できてるか
+      if ((value = document.getElementById(id_name_array[0]).value) === '') {
+          alert_value.push('名前');
+      } else {
+          return_value.push(value);
+      }
+
+      // 当日ボランティアか
+      return_value.push(String(document.getElementById(id_name_array[1]).checked));
+
+      // 記録日時を配列に格納
+      return_value.push(now.getFullYear() + "-" + (Number(now.getMonth()) + 1)  + "-" + now.getDate());
+      return_value.push(now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds());
+
+      // 配布場所が記録されてるか
+      if ((value = radioButton(id_name_array[8])) === '') {
+          alert_value.push('配布場所');
+      } else {
+          return_value.push(value);
+      }
+
+      // 客層が記録されてるか
+      if ((value = radioButton(id_name_array[4])) === '') {
+          alert_value.push('客層');
+      } else {
+          return_value.push(value);
+      }
+
+      // 寄附額が記録されてるか
+      if ((value = document.getElementById(id_name_array[5]).value) === '') {
+          alert_value.push('寄付額');
+      } else {
+          return_value.push(value);
+      }
+
+      // 配布情報がしっかり記録されてるか（最低でも1本記録されてるか）
+      color_P_amount = document.getElementById('color_P_amount').textContent;
+      color_Y_amount = document.getElementById('color_Y_amount').textContent;
+      color_B_amount = document.getElementById('color_B_amount').textContent;
+      color_W_amount = document.getElementById('color_W_amount').textContent;
+      color_Ra_amount = document.getElementById('color_Ra_amount').textContent;
+      if (color_P_amount == 0 && color_Y_amount == 0 && color_B_amount == 0 && color_W_amount == 0 && color_Ra_amount == 0) {
+          alert_value.push('配布色本数');
+      } else {
+      return_value.push(color_P_amount);
+      return_value.push(color_Y_amount);
+      return_value.push(color_B_amount);
+      return_value.push(color_W_amount);
+      return_value.push(color_Ra_amount);
+      }
+
+      // 特記事項を記録
+      return_value.push(document.getElementById(id_name_array[7]).value);
+
+      // デバッグ用
+      console.log('return_value' + return_value);
+      console.log('alert_value' + alert_value);
+
+      // すべて記録できていれば記録内容（return_value配列）を返す
+      // 不足情報（alert_value配列 != 0）があればそれを返す
+      if (alert_value.length === 0) {
+          return_value.unshift(0);
+          return return_value;
+      } else {
+          alert_value.unshift(1);
+          return alert_value;
+      }
+    }
+
+    // 登録
+    google.script.run
+      function submit() {
+
+          // 記録を確認し、戻り値配列を格納
+          var result_input_and_errorCheck = input_and_errorCheck();
+
+          var container = document.getElementById('container');
+          var container_1 = document.getElementById('container_1');
+          var container_2 = document.getElementById('container_2');
+
+          // input_and_errorCheckに応じて、登録完了と失敗を表示
+          if (result_input_and_errorCheck[0] === 0) {
+            result_input_and_errorCheck.shift();
+
+            container.style.background = "#31fb422e";
+            container.style.border = "1px solid #179800";
+            container_1.textContent = '登録完了！';
+            container_2.textContent = (result_input_and_errorCheck);
+            color_counter_reset();
+            console.log('clear');
+          } else {
+            console.log('out');
+            result_input_and_errorCheck.shift();
+            
+            container.style.background = "#ffecec";
+            container.style.border = "1px solid #f5aca6";
+
+            container_1.textContent = '登録失敗！不足あります！';
+            container_2.textContent = (result_input_and_errorCheck + 'を入れて！');
+            return;
+          }
+
+          // デバッグ用
+          console.log(result_input_and_errorCheck);
+
+          // 再利用しない情報を削除
+          remove_content();
+
+          google.script.run.setSsValue(result_input_and_errorCheck);
+
+      }
+  </script>
+</html>
