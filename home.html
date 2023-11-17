@@ -251,51 +251,88 @@
 
    <h2>ひかリングの売れ行きを見る</h2>
    <div class="content">
-      <p>ひかリングの配布状況をここから確認できます。</p>
-      <p>下にある更新ボタンを押すと最新の数字になりますが、<font color="red">更新ボタンの連打は絶対にしないでください</font>。グーグルと<?  output.append(array_name.getValues()[3][0]); ?>が激おこになって、最悪システムがダウンします。なお、更新には1秒ほどかかります。</p>
-      <fieldset class="checkbox-001">
-         <label>
-            <input type="checkbox" id="checkbox_show_eaarning_display" 
-            onclick="show_eaarning_display()" checked>
-            配布状況を表示する！
-         </label>
-      </fieldset>
-      <div id="earning_display_parent">
-         <div class="earning_display_child" id="earning_display_child_R">
-            <span id="earning_display_child_R_span"><?=  getEarnings()[0][0]; ?></span>
-            <span class="earning_display_child_span">本 ／入荷数</span>
-            <span id="earning_display_child_R_ArraivalQuantity"><?  output.append(array_in.getValues()[0][0]); ?></span>
+      <div class="description_content">
+         <p>ひかリングの配布状況をここから確認できます。</p>
+         <p>下にある更新ボタンを押すと最新の数字になりますが、<font color="red">更新ボタンの連打は絶対にしないでください</font>。グーグルと<?  output.append(array_name.getValues()[3][0]); ?>が激おこになって、最悪システムがダウンします。なお、更新には1秒ほどかかります。</p>
+         <fieldset class="checkbox-001">
+            <label>
+               <input type="checkbox" id="checkbox_show_eaarning_display" 
+               onclick="show_eaarning_display()" checked>
+               配布状況を表示する！
+            </label>
+         </fieldset>
+         <div id="earning_display_parent">
+            <div class="earning_display_child" id="earning_display_child_R">
+               <span id="earning_display_child_R_span"><?=  getEarnings()[0][0]; ?></span>
+               <span class="earning_display_child_span">本 ／入荷数</span>
+               <span id="earning_display_child_R_ArraivalQuantity"><?  output.append(array_in.getValues()[0][0]); ?></span>
+            </div>
+            <div class="earning_display_child" id="earning_display_child_Y">
+               <span id="earning_display_child_Y_span"><?=  getEarnings()[1][0]; ?></span>
+               <span class="earning_display_child_span">本 ／ 入荷数</span>
+               <span id="earning_display_child_Y_ArraivalQuantity"><?  output.append(array_in.getValues()[1][0]); ?></span>
+            </div>
+            <div class="earning_display_child" id="earning_display_child_B">
+               <span id="earning_display_child_B_span"><?=  getEarnings()[2][0]; ?></span>
+               <span class="earning_display_child_span">本 ／ 入荷数</span>
+               <span id="earning_display_child_B_ArraivalQuantity"><?  output.append(array_in.getValues()[2][0]); ?></span>
+            </div>
+            <div class="earning_display_child" id="earning_display_child_Ra">
+               <span id="earning_display_child_Ra_span"><?=  getEarnings()[3][0]; ?></span>
+               <span class="earning_display_child_span">本 ／ 入荷数</span>
+               <span id="earning_display_child_Ra_ArraivalQuantity"><?  output.append(array_in.getValues()[3][0]); ?></span>
+            </div>
+            <div class="earning_display_child" id="earning_display_child_W">
+               <span id="earning_display_child_W_span"><?=  getEarnings()[4][0]; ?></span>
+               <span class="earning_display_child_span">本 ／ 入荷数</span>
+               <span id="earning_display_child_W_ArraivalQuantity"><?  output.append(array_in.getValues()[4][0]); ?></span>
+            </div>
+            <div id="updated_time"></div>
+            <button id="color_amount_reset" onclick="earning_display_update()">配布状況を更新</button>
          </div>
-         <div class="earning_display_child" id="earning_display_child_Y">
-            <span id="earning_display_child_Y_span"><?=  getEarnings()[1][0]; ?></span>
-            <span class="earning_display_child_span">本 ／ 入荷数</span>
-            <span id="earning_display_child_Y_ArraivalQuantity"><?  output.append(array_in.getValues()[1][0]); ?></span>
-         </div>
-         <div class="earning_display_child" id="earning_display_child_B">
-            <span id="earning_display_child_B_span"><?=  getEarnings()[2][0]; ?></span>
-            <span class="earning_display_child_span">本 ／ 入荷数</span>
-            <span id="earning_display_child_B_ArraivalQuantity"><?  output.append(array_in.getValues()[2][0]); ?></span>
-         </div>
-         <div class="earning_display_child" id="earning_display_child_Ra">
-            <span id="earning_display_child_Ra_span"><?=  getEarnings()[3][0]; ?></span>
-            <span class="earning_display_child_span">本 ／ 入荷数</span>
-            <span id="earning_display_child_Ra_ArraivalQuantity"><?  output.append(array_in.getValues()[3][0]); ?></span>
-         </div>
-         <div class="earning_display_child" id="earning_display_child_W">
-            <span id="earning_display_child_W_span"><?=  getEarnings()[4][0]; ?></span>
-            <span class="earning_display_child_span">本 ／ 入荷数</span>
-            <span id="earning_display_child_W_ArraivalQuantity"><?  output.append(array_in.getValues()[4][0]); ?></span>
-         </div>
-         <div id="updated_time"></div>
-         <button id="color_amount_reset" onclick="earning_display_update()">配布状況を更新</button>
+         <p>レコードが格納されている元ファイルは学生共有ドライブの「企画等 ＜ 2023企画」にあるスプレッドシートで、本システムはこのスプレッドシートに紐づいています。</p>
+         <p>当日ボランティアの方はスミマセン、アクセス権を配布してないです。気になったら見せてもらってください。</p>
+         <p>
+            <a href="https://docs.google.com/spreadsheets/d/1G0sJRxNn67iJQOWuoRf7CKXnBJKJf3SASZeDKZIAAZo/edit?usp=drive_link" target="_blank">元ファイルへのリンク</a>
+         </p>
       </div>
-      <p>レコードが格納されている元ファイルは学生共有ドライブの「企画等 ＜ 2023企画」にあるスプレッドシートで、本システムはこのスプレッドシートに紐づいています。</p>
-      <p>当日ボランティアの方はスミマセン、アクセス権を配布してないです。気になったら見せてもらってください。</p>
-      <p>
-         <a href="https://docs.google.com/spreadsheets/d/1G0sJRxNn67iJQOWuoRf7CKXnBJKJf3SASZeDKZIAAZo/edit?usp=drive_link" target="_blank">元ファイルへのリンク</a>
-      </p>
    </div>
 
+   <h2>伝言板の使い方</h2>
+   <div class="content">
+         <div>
+            <div class="step">何するの？</div>
+            <div class="description_content">
+              <p>
+               一番上に表示されている伝言板は「青色もう少ない」とか「コレ見た誰か赤持ってきて」とか「メリ〜クリスマス〜」とか、何でも書けます。
+              </p> 
+              <p>
+               と言いつつ、作った本人もイマイチ使うタイミングがワカリマセン。好きに使ってください。
+              </p>
+            </div>
+         </div>
+         <div>
+            <div class="step">書き方</div>
+            <div class="description_content">
+               <p>
+                  <a href="https://script.google.com/macros/s/AKfycbxxGWriLuSnff3xe3x0wlXobyGR4HcJAYVUxoHYwJDvlDvozFoM9_6Z1M3SjnwWqnCuWw/exec" target="_blank">ここの投稿ページ</a>から、メッセージを入れてください。
+               </p>
+               <p>
+                  名前に関しては、他人を偽ったり悪意のある名前・ポスト名でなければなんでも良いです。投稿内容は、無論、常識の範囲内のものでお願いします。
+               </p>
+            </div>
+         </div>
+         <div>
+            <div class="step">故障かな？と思ったら</div>
+            <div class="description_content">
+               <p>
+                  ときどき、画面を読み込んだ直後1秒だけ伝言板が表示されて、すぐ消えてしまうことがあります。その時は、伝言板が非表示になるよう設定されているときです。
+               </p>
+               <p>
+                  表示・非表示の設定手法は投稿ページの下部に書いてあります。わかんなきゃ言ってください。
+               </p>
+            </div>
+   </div>
 
    <h2>このページの使い方</h2>
    <div class="content">
