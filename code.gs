@@ -15,8 +15,8 @@ function doGet() {
 
   // 伝言を取得
   var targetSheet = spreadSheet.getSheetByName('messeage');
-  var todayStr_date = Utilities.formatDate(targetSheet.getRange(targetSheet.getLastRow(), 1,1,4).getValues()[0][0], 'JST', 'yyyy-MM-dd');
-  var todayStr_time = Utilities.formatDate(targetSheet.getRange(targetSheet.getLastRow(), 1,1,4).getValues()[0][1], 'JST', 'HH:mm:ss');
+  var todayStr_date = Utilities.formatDate(targetSheet.getRange(targetSheet.getLastRow(), 1,1,4).getValues()[0][0], 'JST', 'yyyy年MM月dd日');
+  var todayStr_time = Utilities.formatDate(targetSheet.getRange(targetSheet.getLastRow(), 1,1,4).getValues()[0][1], 'JST', 'HH時mm分ss秒');
   var array_messeage = [todayStr_date, todayStr_time, targetSheet.getRange(targetSheet.getLastRow(), 3,1,2).getValues()[0][0], targetSheet.getRange(targetSheet.getLastRow(), 3,1,2).getValues()[0][1]];
   Logger.log(array_messeage);
   htmlOutput.array_messeage = array_messeage;
