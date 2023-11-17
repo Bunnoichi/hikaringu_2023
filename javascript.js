@@ -258,13 +258,23 @@ google.script.run
          var display_B = document.getElementById('earning_display_child_B_span');
          var display_Ra = document.getElementById('earning_display_child_Ra_span');
          var display_W = document.getElementById('earning_display_child_W_span');
-
+         
          display_R.textContent = updated_array[0][0];
          display_Y.textContent = updated_array[1][0];
          display_B.textContent = updated_array[2][0];
          display_Ra.textContent = updated_array[3][0];
          display_W.textContent = updated_array[4][0];
-   
+         
+         var now = new Date();
+         document.getElementById('updated_time').textContent = 
+            '最終更新 ; ' + 
+            now.getFullYear() + '-' + 
+            now.getMonth() + '-' + 
+            now.getDate() + ' - ' + 
+            now.getHours() + ':' + 
+            now.getMinutes() + ':' + 
+            now.getSeconds();
+
          console.log("updated_array");
       }).getEarnings();
    }

@@ -474,3 +474,7 @@ h2 {
 .earning_display_child .earning_display_child_span {
    font-size: 50%;
 }
+
+#updated_time {
+   padding-left: 5%;
+}
