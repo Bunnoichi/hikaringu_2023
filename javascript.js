@@ -246,3 +246,25 @@ google.script.run
       google.script.run.setSsValue(result_input_and_errorCheck);
 
    }
+
+   function earning_display_update() {
+
+      // https://hazime-style.com/?p=1473
+      // https://qiita.com/fujino-fpu/items/4a63cbde8e75e3fba9f4
+      
+      google.script.run.withSuccessHandler(function(updated_array){
+         var display_R = document.getElementById('earning_display_child_R_span');
+         var display_Y = document.getElementById('earning_display_child_Y_span');
+         var display_B = document.getElementById('earning_display_child_B_span');
+         var display_Ra = document.getElementById('earning_display_child_Ra_span');
+         var display_W = document.getElementById('earning_display_child_W_span');
+
+         display_R.textContent = updated_array[0][0];
+         display_Y.textContent = updated_array[1][0];
+         display_B.textContent = updated_array[2][0];
+         display_Ra.textContent = updated_array[3][0];
+         display_W.textContent = updated_array[4][0];
+   
+         console.log("updated_array");
+      }).getEarnings();
+   }
