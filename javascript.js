@@ -282,12 +282,12 @@ google.script.run
         var now = new Date();
         document.getElementById('updated_time').textContent = 
             '最終更新 ; ' + 
-            now.getFullYear() + '-' + 
-            now.getMonth() + '-' + 
-            now.getDate() + ' - ' + 
-            now.getHours() + ':' + 
-            now.getMinutes() + ':' + 
-            now.getSeconds();
+            now.getFullYear().toString() + '-' + 
+            now.getMonth().toString() + '-' + 
+            now.getDate().toString() + ' - ' + 
+            now.getHours().toString().padStart(2, '0') + ':' + 
+            now.getMinutes().toString().padStart(2, '0') + ':' + 
+            now.getSeconds().toString().padStart(2, '0');
 
         console.log("updated_array");
       }).getEarnings();

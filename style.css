@@ -509,6 +509,7 @@ h2 {
 .Messeage_display #messeage_meta_data_speaker { 
    font-size: 107%;
    color: #4d4d4d;
+   margin-bottom: 4px;
 }
 
 .Messeage_display #messeage_meta_data_data { 
