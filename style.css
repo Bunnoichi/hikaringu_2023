@@ -446,25 +446,26 @@ h2 {
 .earning_display_child {
    margin: 5px;
    padding: 10px;
+   border-radius: 10px;
    text-align: center;
    font-size: 200%;
-   color: #fff;
+   color: #000;
 }
 #earning_display_child_R {
    border: 1px solid #ff0000;
-   background-color: #ff3535ca;
+   background-color: #ff353540;
 }
 #earning_display_child_Y {
    border: 1px solid #e0bd33;
-   background-color: #ffcc00;
+   background-color: #ffd90040;
 }
 #earning_display_child_B {
    border: 1px solid #2589d0;
-   background-color: #2589d0;
+   background-color: #2589d020;
 }
 #earning_display_child_W {
    border: 1px solid #12121298;
-   background-color: #5d5d5d40;
+   background-color: #ffffff40;
 }
 #earning_display_child_Ra {
    border: 1px solid #0000007e;
