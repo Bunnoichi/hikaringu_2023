@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="style.css">
+    <script src="javascript.js"></script>
+   <?!= HtmlService.createHtmlOutputFromFile("css").getContent(); ?>
+  </head>
+  <body>
+    <!-- Hello, World! -->
+    <h1>伝言板投稿ページ</h1>
+    <div class="warning">
+       伝言板の投稿ページです。連絡事項や雑談があったら書けます。良識の範囲内で書いてね。
+    </div>
+    <div class="question">
+       <div class="question_overall">
+          <div class="question_title">おなまえ</div>
+          <div class="question_description">
+             「当日リーダー」「サンタさん」など、他人の名前を勝手に使う以外なら何でも良いです。
+            </div>
+            <div class="question_content">
+               <label for="input_handler_name">おなまえ：</label><input type="text" id="input_handler_name" placeholder="" class="textbox"><br>
+         </div>
+      </div>
+   </div>
+      <div class="question_overall">
+         <div class="question_title">伝言の中身</div>
+         <div class="question_description">
+            「青色無くなりそう」とか「メリークリスマス〜」とか書けます。
+         </div>
+         <div class="question_content">
+            <div class="question_description"></div>
+            <textarea name="" id="input_commentary" placeholder="なんか書いてね。" class="textarea" rows="3"></textarea>
+         </div>
+      </div>
+   </div>
+   <input type="button" value="この内容で登録" id="submit_button" onclick="submit()"></button>
+
+   <div class="container" id="container">
+      <div id="container_1"></div>
+      <div id="container_2"></div>
+      <div id="container_3"></div>
+   </div>
+
+   <h2>伝言板ファイル</h2>
+   <div class="content">
+      <div class="description_content">
+         伝言板の履歴も<a href="https://docs.google.com/spreadsheets/d/1G0sJRxNn67iJQOWuoRf7CKXnBJKJf3SASZeDKZIAAZo/edit#gid=1383962749" target="_blank">スプレッドシート</a>で管理しています。ここからダイレクトに編集もできます。
+      </div>
+   </div>
+
+  </body>
+</html>
