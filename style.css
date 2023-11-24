@@ -487,7 +487,7 @@ h2 {
    position: relative;
    border: 3px solid rgba(14, 136, 0, 0.866);
    border-radius: 5px;
-   margin: 20px 0;
+   margin: 10px 0 20px;
    padding: 20px 20px 5px 20px;
 }
 .Messeage_display::before {
@@ -521,4 +521,11 @@ h2 {
    text-align: right;
    margin-top: 30px;
    margin-right: 8%;
+}
+
+#version_information { 
+   font-size: 93%;
+   text-align: right;
+   color: #4d4d4d;
+   padding: 5px;
 }
