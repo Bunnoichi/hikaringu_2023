@@ -193,6 +193,10 @@ h1 {
    border: 1px solid #2589d0;
    background-color: #2589d020;
 }
+.radio-002 #color_G {
+   border: 1px solid #09631b;
+   background-color: #bae9c4;
+}
 .radio-002 #color_W {
    border: 1px solid #12121298;
    background-color: #ffffff40;
@@ -212,6 +216,10 @@ h1 {
 }
 .radio-002 #color_B:has(:checked) {
    background-color: #2589d0;
+   color: #fff;
+}
+.radio-002 #color_G:has(:checked) {
+   background-color: #169830;
    color: #fff;
 }
 .radio-002 #color_W:has(:checked) {
@@ -251,6 +259,9 @@ h1 {
 }
 .radio-002 #color_B:has(:checked)::after {
    background-color: #2589d0;
+}
+.radio-002 #color_G:has(:checked)::after {
+   background-color: #169830;
 }
 .radio-002 #color_W:has(:checked)::after {
    background-color: #555555;
@@ -301,6 +312,10 @@ h1 {
 #color_amount_flex_child_B {
    border: 1px solid #2589d0;
    background-color: #2589d0;
+}
+#color_amount_flex_child_G {
+   border: 1px solid #09631b;
+   background-color: #169830;
 }
 #color_amount_flex_child_W {
    border: 1px solid #12121298;
@@ -462,6 +477,10 @@ h2 {
 #earning_display_child_B {
    border: 1px solid #2589d0;
    background-color: #2589d020;
+}
+#earning_display_child_G {
+   border: 1px solid #09631b;
+   background-color: #bae9c4;
 }
 #earning_display_child_W {
    border: 1px solid #12121298;
