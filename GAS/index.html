@@ -7,445 +7,430 @@
     <!-- <script src="javascript.js"></script> -->
    <?!= HtmlService.createHtmlOutputFromFile("css").getContent(); ?>
    <?!= HtmlService.createHtmlOutputFromFile("script").getContent(); ?>
-  </head>
-  <body>
+   </head>
+   <body>
    <!-- Hello, World! -->
    <h1>ひかリング配布登録ページ</h1>
    <div class="warning">
-      このページは関係者用サイトです。決して組織外の人間にリンクを漏らさぬよう、お願い申し上げます。
+      【実行委員会メンバー外アクセス禁止】
    </div>
    
    <div id="version_information">
-      Version : 1.1
+      Version : 24.1
    </div>
 
    <div class="Messeage_display">
-     <div id="messeage_content">
-        <p>
-           <?  output.append(array_messeage[3]); ?>
-        </p>
-     </div>
-     <div id="messeage_meta_data">
-        <p>
-           <div id="messeage_meta_data_speaker">By <?  output.append(array_messeage[2]); ?></div>
-           <div id="messeage_meta_data_data">at <?  output.append(array_messeage[0]); ?> <?  output.append(array_messeage[1]); ?></div>
-        </p>
-     </div>
-  </div>
+      <div id="messeage_content">
+         <p>
+            <?  output.append(array_messeage[3]); ?>
+         </p>
+      </div>
+      <div id="messeage_meta_data">
+         <p>
+            <div id="messeage_meta_data_speaker">By <?  output.append(array_messeage[2]); ?></div>
+            <div id="messeage_meta_data_data">at <?  output.append(array_messeage[0]); ?> <?  output.append(array_messeage[1]); ?></div>
+         </p>
+      </div>
+   </div>
 
    <div class="question">
       <div class="question_overall">
          <div class="question_title">記録者情報</div>
          <div class="question_description">
             あだ名でもいいけど、誰かわかる名前にしてね。
-           </div>
-           <div class="question_content">
-              <label for="input_handler_name">記録者氏名：</label><input type="text" id="input_handler_name" placeholder="氏名" class="textbox"><br>
-           <!-- <fieldset class="checkbox-001">
-              <label>
-                 <input type="checkbox" id="input_checked_volunteer" >
-                 わたし当日ボランティア！
-              </label>
-           </fieldset> -->
-        </div>
-     </div>
-     
-     <div class="question_overall">
-        <div class="question_title">配布場所</div>
-        <div class="question_description">
-           ステーション、回廊、デッキ以外の場合は「その他」にして、最後にある「特記事項」に記してください。
-        </div>
-        <div class="question_content">
-           <fieldset class="radio-003">
-              <label>
-                 <input type="radio" name="spot_choice"  id="spot_station" value="station"/>
-                 おもてなしステーション
-              </label>
-              <label>
-                 <input type="radio" name="spot_choice" id="spot_castle" value="castle"/>
-                 光の回廊（キャッスル）
-              </label>
-              <label>
-                 <input type="radio" name="spot_choice" id="spot_deck" value="deck"/>
-                 スマイル☆デッキ
-              </label>
-              <label>
-                 <input type="radio" name="spot_choice" id="spot_otherwise" value="otherwise"/>
-                 その他
-              </label>
-           </fieldset>
-        </div>
-     </div>
-     
-     <div class="question_overall">
-        <div class="question_title">来場者情報</div>
-        <div class="question_description">
-           下のボタンを押すと来場者の区分を確認できます。イレギュラーもあるかと思うので、適宜上手くやってください。
-           <fieldset class="checkbox-001">
-              <label>
-                 <input type="checkbox" id="show_target_classification_flexbox" onclick="show_target_classification_flexbox()">
-                 来場者の分類を表示
-              </label>
-           </fieldset>
-           <div id="target_classification_flexbox">
-              <table class="design12">
-                 <tr>
-                    <th>客層</th>
-                    <th>どんな人</th>
-                 </tr>
-                 <tr>
-                    <td>ティーン</td>
-                    <td>大学生ぐらいまで。</td>
-                 </tr>
-                 <tr>
-                    <td>家族連れ（若）</td>
-                    <td>小学生ぐらいまでを連れた家族</td>
-                 </tr>
-                 <tr>
-                    <td>家族連れ（その他）</td>
-                    <td>ティーン、家族連れ（若）以外の家族連れ。ただし、老夫婦は除く。</td>
-                 </tr>
-                 <tr>
-                    <td>大人たち</td>
-                    <td>家族連れ以外の大人。ソロも集団も。</td>
-                 </tr>
-                 <tr>
-                    <td>シニア</td>
-                    <td>おじいちゃん、おばあちゃん、老夫婦。</td>
-                 </tr>
-              </table>
-           </div>
-        </div>
-        <div class="question_content">
-           <fieldset class="radio-003">
-              <label>
-                 <input type="radio" name="target_choice"  id="target_teen" value="teen"/>
-                 ティーン
-              </label>
-              <label>
-                 <input type="radio" name="target_choice" id="target_yaf" value="yaf"/>
-                 家族連れ（若）
-              </label>
-              <label>
-                 <input type="radio" name="target_choice" id="target_af" value="af"/>
-                 家族連れ（その他）
-              </label>
-              <label>
-                 <input type="radio" name="target_choice" id="target_adult" value="adult"/>
-                 大人たち
-              </label>
-              <label>
-                 <input type="radio" name="target_choice" id="target_senior" value="senior"/>
-                 シニア
-              </label>
-           </fieldset>
-        </div>
-     </div>
-     <div class="question_overall">
-        <div class="question_title">配布本数</div>
-        <div class="question_description">
-           お渡しした色の本数分だけ、対応する色のボタンを押してください。赤2本、虹色1本渡したなら、「あかいろ」を2回、「にじいろ」を1回押す、みたいな感じで。必ず、色と本数の対応を確認してください。<br>「間違えた！」って場合は、下のリセットボタンでクリアできます。
-           <fieldset class="checkbox-001">
-              <label>
-                 <input type="checkbox" onclick="box_show()" id="box_show">
-                 ボックス表示
-              </label>
-           </fieldset>
-        </div>
-        <div class="question_content">
-           <fieldset class="radio-002">
-              <label id="color_P">
-                 <input type="radio" value="color_P" name="color_choice" onclick="color_counter('color_P')"/>
-                 あかいろ
-                 <span class="color_amount" id="color_P_amount"></span>
-              </label>
-              <label id="color_Y">
-                 <input type="radio" value="color_Y" name="color_choice" onclick="color_counter('color_Y')"/>
-                 きいろ
-                 <span class="color_amount" id="color_Y_amount"></span>
-              </label>
-              <label id="color_B">
-                 <input type="radio" value="color_B" name="color_choice" onclick="color_counter('color_B')"/>
-                 あおいろ
-                 <span class="color_amount" id="color_B_amount"></span>
-              </label>
-              <label id="color_G">
-                 <input type="radio" value="color_G" name="color_choice" onclick="color_counter('color_G')"/>
-                 みどりいろ
-                 <span class="color_amount" id="color_G_amount"></span>
-              </label>
-              <label id="color_Ra">
-                 <input type="radio" value="color_Ra" name="color_choice" onclick="color_counter('color_Ra')"/>
-                 にじいろ
-                 <span class="color_amount" id="color_Ra_amount"></span>
-              </label>
-              <label id="color_W">
-                 <input type="radio" value="color_W" name="color_choice" onclick="color_counter('color_W')"/>
-                 しろいろ
-                 <span class="color_amount" id="color_W_amount"></span>
-              </label>
-              <div class="color_amount_flex_parent">
-                 <div class="color_amount_flex_child" id="color_amount_flex_child_P">
-                    <span id="color_amount_flex_child_P_span"></span>
-                    <span class="color_amount_flex_child_span">本</span>
-                 </div>
-                 <div class="color_amount_flex_child" id="color_amount_flex_child_Y">
-                    <span id="color_amount_flex_child_Y_span"></span>
-                    <span class="color_amount_flex_child_span">本</span>
-                 </div>
-                 <div class="color_amount_flex_child" id="color_amount_flex_child_B">
-                    <span id="color_amount_flex_child_B_span"></span>
-                    <span class="color_amount_flex_child_span">本</span>
-                 </div>
-              </div>
-              <div class="color_amount_flex_parent">
-                 <div class="color_amount_flex_child" id="color_amount_flex_child_G">
-                    <span id="color_amount_flex_child_G_span"></span>
-                    <span class="color_amount_flex_child_span">本</span>
-                 </div>
-                 <div class="color_amount_flex_child" id="color_amount_flex_child_Ra">
-                    <span id="color_amount_flex_child_Ra_span"></span>
-                    <span class="color_amount_flex_child_span">本</span>
-                 </div>
-                 <div class="color_amount_flex_child" id="color_amount_flex_child_W">
-                    <span id="color_amount_flex_child_W_span"></span>
-                    <span class="color_amount_flex_child_span">本</span>
-                 </div>
-              </div>
+            </div>
+            <div class="question_content">
+               <label for="input_handler_name">記録者氏名：</label><input type="text" id="input_handler_name" placeholder="氏名" class="textbox"><br>
+            <!-- <fieldset class="checkbox-001">
+               <label>
+                  <input type="checkbox" id="input_checked_volunteer" >
+                  わたし当日ボランティア！
+               </label>
+            </fieldset> -->
+         </div>
+      </div>
+      
+      <div class="question_overall">
+         <div class="question_title">配布場所</div>
+         <div class="question_description">
+            ステーション、回廊、デッキ以外の場合は「その他」にして、最後にある「特記事項」に記してください。
+         </div>
+         <div class="question_content">
+            <fieldset class="radio-003">
+               <label>
+                  <input type="radio" name="spot_choice"  id="spot_station" value="station"/>
+                  おもてなしステーション
+               </label>
+               <label>
+                  <input type="radio" name="spot_choice" id="spot_castle" value="castle"/>
+                  光の回廊（キャッスル）
+               </label>
+               <label>
+                  <input type="radio" name="spot_choice" id="spot_deck" value="deck"/>
+                  スマイル☆デッキ
+               </label>
+               <label>
+                  <input type="radio" name="spot_choice" id="spot_otherwise" value="otherwise"/>
+                  その他
+               </label>
+            </fieldset>
+         </div>
+      </div>
+      
+      <div class="question_overall">
+         <div class="question_title">来場者情報</div>
+         <div class="question_description">
+            下のボタンを押すと来場者の区分を確認できます。イレギュラーもあるかと思うので、適宜上手くやってください。
+            <fieldset class="checkbox-001">
+               <label>
+                  <input type="checkbox" id="show_target_classification_flexbox" onclick="show_target_classification_flexbox()">
+                  来場者の分類を表示
+               </label>
+            </fieldset>
+            <div id="target_classification_flexbox">
+               <table class="design12">
+                  <tr>
+                     <th>客層</th>
+                     <th>どんな人</th>
+                  </tr>
+                  <tr>
+                     <td>ティーン</td>
+                     <td>大学生ぐらいまで。</td>
+                  </tr>
+                  <tr>
+                     <td>家族連れ（若）</td>
+                     <td>小学生ぐらいまでを連れた家族</td>
+                  </tr>
+                  <tr>
+                     <td>家族連れ（その他）</td>
+                     <td>ティーン、家族連れ（若）以外の家族連れ。ただし、老夫婦は除く。</td>
+                  </tr>
+                  <tr>
+                     <td>大人たち</td>
+                     <td>家族連れ以外の大人。ソロも集団も。</td>
+                  </tr>
+                  <tr>
+                     <td>シニア</td>
+                     <td>おじいちゃん、おばあちゃん、老夫婦。</td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+         <div class="question_content">
+            <fieldset class="radio-003">
+               <label>
+                  <input type="radio" name="target_choice"  id="target_teen" value="teen"/>
+                  ティーン
+               </label>
+               <label>
+                  <input type="radio" name="target_choice" id="target_yaf" value="yaf"/>
+                  家族連れ（若）
+               </label>
+               <label>
+                  <input type="radio" name="target_choice" id="target_af" value="af"/>
+                  家族連れ（その他）
+               </label>
+               <label>
+                  <input type="radio" name="target_choice" id="target_adult" value="adult"/>
+                  大人たち
+               </label>
+               <label>
+                  <input type="radio" name="target_choice" id="target_senior" value="senior"/>
+                  シニア
+               </label>
+            </fieldset>
+         </div>
+      </div>
+      <div class="question_overall">
+         <div class="question_title">配布本数</div>
+         <div class="question_description">
+            お渡しした色の本数分だけ、対応する色のボタンを押してください。赤2本、虹色1本渡したなら、「あかいろ」を2回、「にじいろ」を1回押す、みたいな感じで。必ず、色と本数の対応を確認してください。<br>「間違えた！」って場合は、下のリセットボタンでクリアできます。
+            <fieldset class="checkbox-001">
+               <label>
+                  <input type="checkbox" onclick="box_show()" id="box_show">
+                  ボックス表示
+               </label>
+            </fieldset>
+         </div>
+         <div class="question_content">
+            <fieldset class="radio-002">
+               <label id="color_P">
+                  <input type="radio" value="color_P" name="color_choice" onclick="color_counter('color_P')"/>
+                  あかいろ
+                  <span class="color_amount" id="color_P_amount"></span>
+               </label>
+               <label id="color_Y">
+                  <input type="radio" value="color_Y" name="color_choice" onclick="color_counter('color_Y')"/>
+                  きいろ
+                  <span class="color_amount" id="color_Y_amount"></span>
+               </label>
+               <label id="color_B">
+                  <input type="radio" value="color_B" name="color_choice" onclick="color_counter('color_B')"/>
+                  あおいろ
+                  <span class="color_amount" id="color_B_amount"></span>
+               </label>
+               <label id="color_G">
+                  <input type="radio" value="color_G" name="color_choice" onclick="color_counter('color_G')"/>
+                  みどりいろ
+                  <span class="color_amount" id="color_G_amount"></span>
+               </label>
+               <label id="color_Ra">
+                  <input type="radio" value="color_Ra" name="color_choice" onclick="color_counter('color_Ra')"/>
+                  にじいろ
+                  <span class="color_amount" id="color_Ra_amount"></span>
+               </label>
+               <label id="color_W">
+                  <input type="radio" value="color_W" name="color_choice" onclick="color_counter('color_W')"/>
+                  しろいろ
+                  <span class="color_amount" id="color_W_amount"></span>
+               </label>
+               <div class="color_amount_flex_parent">
+                  <div class="color_amount_flex_child" id="color_amount_flex_child_P">
+                     <span id="color_amount_flex_child_P_span"></span>
+                     <span class="color_amount_flex_child_span">本</span>
+                  </div>
+                  <div class="color_amount_flex_child" id="color_amount_flex_child_Y">
+                     <span id="color_amount_flex_child_Y_span"></span>
+                     <span class="color_amount_flex_child_span">本</span>
+                  </div>
+                  <div class="color_amount_flex_child" id="color_amount_flex_child_B">
+                     <span id="color_amount_flex_child_B_span"></span>
+                     <span class="color_amount_flex_child_span">本</span>
+                  </div>
+               </div>
+               <div class="color_amount_flex_parent">
+                  <div class="color_amount_flex_child" id="color_amount_flex_child_G">
+                     <span id="color_amount_flex_child_G_span"></span>
+                     <span class="color_amount_flex_child_span">本</span>
+                  </div>
+                  <div class="color_amount_flex_child" id="color_amount_flex_child_Ra">
+                     <span id="color_amount_flex_child_Ra_span"></span>
+                     <span class="color_amount_flex_child_span">本</span>
+                  </div>
+                  <div class="color_amount_flex_child" id="color_amount_flex_child_W">
+                     <span id="color_amount_flex_child_W_span"></span>
+                     <span class="color_amount_flex_child_span">本</span>
+                  </div>
+               </div>
 
-           </fieldset>
-           <button id="color_amount_reset" onclick="color_counter_reset()">配布本数をリセット</button>
-        </div>
-     </div>
-  </div>
-     <div class="question_overall">
-        <div class="question_title">寄付額</div>
-        <div class="question_description">
-           <p>
-              今回、ひかリングは1本300円でのお渡しです。前項「配布情報」で入力された本数と「寄附額」の入力欄はリンクしているため、基本的に操作不要です。
-           </p>
-           <p>
-              もし1本あたり300円以上の額（寄付）を頂いたら、頂いた総額（ひかリング代＋寄付として）を入力してください。
-           </p>
-        </div>
-        <div class="question_content">
-           <label for="input_donation_amount">寄付額（円）</label><input type="number" class="textbox" id="input_donation_amount" min="0" value="0">
-        </div>
-     </div>
-     <div class="question_overall">
-        <div class="question_title">その他特記事項</div>
-        <div class="question_description">
-           「子供がありえんくらい喜んでた」とか「酔っ払いうるさかった」とか、嬉しいことムカつくことなんでも書いてください。集計確認のため、毎日見る努力はしてます。
-        </div>
-        <div class="question_content">
-           <div class="question_description"></div>
-           <textarea name="" id="input_commentary" placeholder="特記事項・意見・感想・暇つぶし・愛のポエムなど" class="textarea" rows="3"></textarea>
-        </div>
-     </div>
-  </div>
-  <input type="button" value="この内容で登録" id="submit_button" onclick="submit()"></button>
+            </fieldset>
+            <button id="color_amount_reset" onclick="color_counter_reset()">配布本数をリセット</button>
+         </div>
+      </div>
+   </div>
+      <div class="question_overall">
+         <div class="question_title">寄付額</div>
+         <div class="question_description">
+            <p>
+               基本的に操作不要です。
+            </p>
+            <p>
+               もし1本あたり300円以上の額（寄付）を頂いたら、頂いた総額（ひかリング代＋寄付として）を入力してください。
+            </p>
+         </div>
+         <div class="question_content">
+            <label for="input_donation_amount">寄付額（円）</label><input type="number" class="textbox" id="input_donation_amount" min="0" value="0">
+         </div>
+      </div>
+      <div class="question_overall">
+         <div class="question_title">その他特記事項</div>
+         <div class="question_description">
+            なんでも書いてください。毎日見る努力はしてます。
+         </div>
+         <div class="question_content">
+            <div class="question_description"></div>
+            <textarea name="" id="input_commentary" placeholder="特記事項・意見・感想・暇つぶし・愛のポエムなど" class="textarea" rows="3"></textarea>
+         </div>
+      </div>
+   </div>
+   <input type="button" value="この内容で登録" id="submit_button" onclick="submit()"></button>
 
-  <div class="container" id="container">
-     <div id="container_1"></div>
-     <div id="container_2"></div>
-     <div id="container_3"></div>
-  </div>
+   <div class="container" id="container">
+      <div id="container_1"></div>
+      <div id="container_2"></div>
+      <div id="container_3"></div>
+   </div>
 
-  <h2>問い合わせ</h2>
-  <div class="content">
-     <div class="description_content">
-        各種事項について、以下の人間が責任者です。聞きたいことや困ったことがあったら連絡ください。
-        <ul>
-           <li>ひかリング取扱；ユース部会学生・<?  output.append(array_name.getValues()[0][0]); ?></li>
-           <li>本登録システム；ユース部会学生・<?  output.append(array_name.getValues()[1][0]); ?></li>
-           <li>金銭取扱・緊急；ユース部会長・<?  output.append(array_name.getValues()[2][0]); ?></li>
-        </ul>
-        <p>いつでもきいてね♡</p>
-     </div>
-  </div>
+   <h2>問い合わせ</h2>
+   <div class="content">
+      <div class="description_content">
+         各種事項について、以下の人間が責任者です。聞きたいことや困ったことがあったら連絡ください。
+         <ul>
+            <li>ひかリング取扱；ユース部会学生・<?  output.append(array_name.getValues()[0][0]); ?></li>
+            <li>販売管理システム；ユース部会学生・<?  output.append(array_name.getValues()[1][0]); ?></li>
+            <li>金銭取扱・緊急；ユース部会長・<?  output.append(array_name.getValues()[2][0]); ?></li>
+         </ul>
+         <p>いつでもきいてね♡</p>
+      </div>
+   </div>
 
-  <h2>ひかリングの売れ行きを見る</h2>
-  <div class="content">
-     <div class="description_content">
-        <p>ひかリングの配布状況をここから確認できます。</p>
-        <p>下にある更新ボタンを押すと最新の数字になりますが、<font color="red">更新ボタンの連打は絶対にしないでください</font>。グーグルと<?  output.append(array_name.getValues()[3][0]); ?>が激おこになって、最悪システムがダウンします。なお、更新には1秒ほどかかります。</p>
-        <fieldset class="checkbox-001">
-           <label>
-              <input type="checkbox" id="checkbox_show_eaarning_display" 
-              onclick="show_eaarning_display()" checked>
-              配布状況を表示する！
-           </label>
-        </fieldset>
-        <div id="earning_display_parent">
-           <div class="earning_display_child" id="earning_display_child_R">
-              <span id="earning_display_child_R_span"><?=  getEarnings()[0][0]; ?></span>
-              <span class="earning_display_child_span">本 ／入荷数</span>
-              <span id="earning_display_child_R_ArraivalQuantity"><?  output.append(array_in.getValues()[0][0]); ?></span>
-           </div>
-           <div class="earning_display_child" id="earning_display_child_Y">
-              <span id="earning_display_child_Y_span"><?=  getEarnings()[1][0]; ?></span>
-              <span class="earning_display_child_span">本 ／ 入荷数</span>
-              <span id="earning_display_child_Y_ArraivalQuantity"><?  output.append(array_in.getValues()[1][0]); ?></span>
-           </div>
-           <div class="earning_display_child" id="earning_display_child_B">
-              <span id="earning_display_child_B_span"><?=  getEarnings()[2][0]; ?></span>
-              <span class="earning_display_child_span">本 ／ 入荷数</span>
-              <span id="earning_display_child_B_ArraivalQuantity"><?  output.append(array_in.getValues()[2][0]); ?></span>
-           </div>
-           <div class="earning_display_child" id="earning_display_child_G">
-              <span id="earning_display_child_G_span"><?=  getEarnings()[2][0]; ?></span>
-              <span class="earning_display_child_span">本 ／ 入荷数</span>
-              <span id="earning_display_child_G_ArraivalQuantity"><?  output.append(array_in.getValues()[2][0]); ?></span>
-           </div>
-           <div class="earning_display_child" id="earning_display_child_Ra">
-              <span id="earning_display_child_Ra_span"><?=  getEarnings()[3][0]; ?></span>
-              <span class="earning_display_child_span">本 ／ 入荷数</span>
-              <span id="earning_display_child_Ra_ArraivalQuantity"><?  output.append(array_in.getValues()[3][0]); ?></span>
-           </div>
-           <div class="earning_display_child" id="earning_display_child_W">
-              <span id="earning_display_child_W_span"><?=  getEarnings()[4][0]; ?></span>
-              <span class="earning_display_child_span">本 ／ 入荷数</span>
-              <span id="earning_display_child_W_ArraivalQuantity"><?  output.append(array_in.getValues()[4][0]); ?></span>
-           </div>
-           <div id="updated_time"></div>
-           <button id="color_amount_reset" onclick="earning_display_update()">配布状況を更新</button>
-        </div>
-        <p>レコードが格納されている元ファイルは学生共有ドライブの「企画等 ＜ 2023企画」にあるスプレッドシートで、本システムは<a href="https://docs.google.com/spreadsheets/d/1G0sJRxNn67iJQOWuoRf7CKXnBJKJf3SASZeDKZIAAZo/edit?usp=drive_link" target="_blank">このスプレッドシート</a>に紐づいています。</p>
-        <p>当日ボランティアの方はスミマセン、アクセス権を配布してないです。気になったら見せてもらってください。</p>
-     </div>
-  </div>
+   <h2>ひかリングの売れ行きを見る</h2>
+   <div class="content">
+      <div class="description_content">
+         <p>ひかリングの配布状況をここから確認できます。</p>
+         <fieldset class="checkbox-001">
+            <label>
+               <input type="checkbox" id="checkbox_show_eaarning_display" 
+               onclick="show_eaarning_display()" checked>
+               配布状況を表示する！
+            </label>
+         </fieldset>
+         <div id="earning_display_parent">
+            <div class="earning_display_child" id="earning_display_child_R">
+               <span id="earning_display_child_R_span"><?=  getEarnings()[0][0]; ?></span>
+               <span class="earning_display_child_span">本 ／入荷数</span>
+               <span id="earning_display_child_R_ArraivalQuantity"><?  output.append(array_in.getValues()[0][0]); ?></span>
+            </div>
+            <div class="earning_display_child" id="earning_display_child_Y">
+               <span id="earning_display_child_Y_span"><?=  getEarnings()[1][0]; ?></span>
+               <span class="earning_display_child_span">本 ／ 入荷数</span>
+               <span id="earning_display_child_Y_ArraivalQuantity"><?  output.append(array_in.getValues()[1][0]); ?></span>
+            </div>
+            <div class="earning_display_child" id="earning_display_child_B">
+               <span id="earning_display_child_B_span"><?=  getEarnings()[2][0]; ?></span>
+               <span class="earning_display_child_span">本 ／ 入荷数</span>
+               <span id="earning_display_child_B_ArraivalQuantity"><?  output.append(array_in.getValues()[2][0]); ?></span>
+            </div>
+            <div class="earning_display_child" id="earning_display_child_G">
+               <span id="earning_display_child_G_span"><?=  getEarnings()[2][0]; ?></span>
+               <span class="earning_display_child_span">本 ／ 入荷数</span>
+               <span id="earning_display_child_G_ArraivalQuantity"><?  output.append(array_in.getValues()[2][0]); ?></span>
+            </div>
+            <div class="earning_display_child" id="earning_display_child_Ra">
+               <span id="earning_display_child_Ra_span"><?=  getEarnings()[3][0]; ?></span>
+               <span class="earning_display_child_span">本 ／ 入荷数</span>
+               <span id="earning_display_child_Ra_ArraivalQuantity"><?  output.append(array_in.getValues()[3][0]); ?></span>
+            </div>
+            <div class="earning_display_child" id="earning_display_child_W">
+               <span id="earning_display_child_W_span"><?=  getEarnings()[4][0]; ?></span>
+               <span class="earning_display_child_span">本 ／ 入荷数</span>
+               <span id="earning_display_child_W_ArraivalQuantity"><?  output.append(array_in.getValues()[4][0]); ?></span>
+            </div>
+            <div id="updated_time"></div>
+            <button id="color_amount_reset" onclick="earning_display_update()">配布状況を更新</button>
+         </div>
+         <p><font color="red">※更新ボタンの連打は絶対にしないでください。</font>グーグルと<?  output.append(array_name.getValues()[3][0]); ?>が激おこになってシステムがダウンします。なお、更新には1秒ほどかかります。</p>
+      </div>
+   </div>
 
-  <h2>伝言板の使い方</h2>
-  <div class="content">
-        <div>
-           <div class="step">何するの？</div>
-           <div class="description_content">
-             <p>
-              一番上に表示されている伝言板は「青色もう少ない」とか「コレ見た誰か赤持ってきて」とか「メリ〜クリスマス〜」とか、何でも書けます。
-             </p> 
-             <p>
-              と言いつつ、作った本人もイマイチ使うタイミングがワカリマセン。好きに使ってください。
-             </p>
-           </div>
-        </div>
-        <div>
-           <div class="step">書き方</div>
-           <div class="description_content">
-              <p>
-                 <a href="https://script.google.com/macros/s/AKfycbxxGWriLuSnff3xe3x0wlXobyGR4HcJAYVUxoHYwJDvlDvozFoM9_6Z1M3SjnwWqnCuWw/exec" target="_blank">ここの投稿ページ</a>から、メッセージを入れてください。
-              </p>
-              <p>
-                 名前に関しては、他人を偽ったり悪意のある名前・役職名でなければなんでも良いです。投稿内容は、無論、常識の範囲内のものでお願いします。
-              </p>
-           </div>
-        </div>
-        <div>
-           <div class="step">故障かな？と思ったら</div>
-           <div class="description_content">
-              <p>
-                 ときどき、画面を読み込んだ直後1秒だけ伝言板が表示されて、すぐ消えてしまうことがあります。その時は、伝言板が非表示になるよう設定されているときです。
-              </p>
-              <p>
-                 表示・非表示の設定手法は投稿ページの下部に書いてあります。わかんなきゃ言ってください。
-              </p>
-           </div>
-  </div>
+   <h2>伝言板の使い方</h2>
+   <div class="content">
+         <div>
+            <div class="step">何するの？</div>
+            <div class="description_content">
+               <p>
+                  作った本人もイマイチ使うタイミングがワカリマセン。好きに使ってください。
+               </p>
+            </div>
+         </div>
+         <div>
+            <div class="step">書き方</div>
+            <div class="description_content">
+               <p>
+                  <a href="https://script.google.com/macros/s/AKfycbxxGWriLuSnff3xe3x0wlXobyGR4HcJAYVUxoHYwJDvlDvozFoM9_6Z1M3SjnwWqnCuWw/exec" target="_blank">ここの投稿ページ</a>から、メッセージを入れてください。
+               </p>
+               <p>
+                  名前に関しては、他人を偽ったり悪意のある名前・役職名でなければなんでも良いです。投稿内容は、無論、常識の範囲内のものでお願いします。
+               </p>
+            </div>
+         </div>
+         <div>
+   </div>
 
-  <h2>このページの使い方</h2>
-  <div class="content">
-     <div class="step"><span class="step_num">Step1</span>記録者情報</div>
-     <div class="description_content">
-        まず、記録してくれるあなたの名前を記入してください。名字だけとかあだ名でもいいけど、誰かわかるようにしてね。当日ボランティアの方は、「わたし当日ボランティ！」チェックマークも入れてくださいませ。
-     </div>
-     <div class="step"><span class="step_num">Step2</span>配布場所</div>
-     <div class="description_content">
-        ひかリングを配布した場所を選択してください。「その他」を選択した場合は、「その他特記事項」に配布場所を明記してください。
-     </div>
-     <div class="step" id="description_target_description"><span class="step_num">Step3</span>来場者情報</div>
-     <div class="description_content">
-        来年度以降のためのデータ分析・総括のため、来場者の客層記録もお願いしています。客層分類は以下になります。
-        <table class="design12">
-           <tr>
-              <th>客層</th>
-              <th>どんな人</th>
-           </tr>
-           <tr>
-              <td>ティーン</td>
-              <td>大学生ぐらいまで。</td>
-           </tr>
-           <tr>
-              <td>家族連れ（若）</td>
-              <td>小学生ぐらいまでを連れた家族</td>
-           </tr>
-           <tr>
-              <td>家族連れ（その他）</td>
-              <td>ティーン、家族連れ（若）以外の家族連れ。ただし、老夫婦は除く。</td>
-           </tr>
-           <tr>
-              <td>大人たち</td>
-              <td>家族連れ以外の大人。ソロも集団も。</td>
-           </tr>
-           <tr>
-              <td>シニア</td>
-              <td>おじいちゃん、おばあちゃん、老夫婦。</td>
-           </tr>
-        </table>
-        以上の分類になりますが、適宜、上手くやってください。
-     </div>
-     <div class="step"><span class="step_num">Step4</span>配布情報</div>
-     <div class="description_content">
-        <p>次に、お渡ししたひかリングの色と、その本数を記録してください。こちらは、色のボタンを押した回数がその色のひかリングの配布数となります。もし押し間違えた場合は、下の「色本数をリセット」を押すことでクリア出来ます。</p>
-        <p>また、「ボックス表示」のチェックを入れると、視認性がちょっとアガるかも。</p>
-     </div>
-     <div class="step"><span class="step_num">Step5</span>寄付額</div>
-     <div class="description_content">
-        次に、寄付額です。寄附額の欄は「配布情報」で入力された本数とリンクしているため、基本的に操作不要です。必要以上の額（ご寄付）を頂いたら入力してください。
-     </div>
-     <div class="step"><span class="step_num">Step6</span>その他特記事項</div>
-     <div class="description_content">
-        最後に、いわゆる備考欄です。特筆事項や感想があれば書いてください。
-     </div>
-     <div class="step"><span class="step_num">Step7</span>登録</div>
-     <div class="description_content">
-        あとは、書いてくれたデータをスプレッドシートに送りつけるだけです。成功すると下が緑色になって、失敗してると赤くなります。
-     </div>
-     <div class="step"><span class="step_num">Step8</span> 次の方〜</div>
-     <div class="description_content">
-        あとはこれの繰り返しで、Step2に戻ります。名前とボランティアのチェック、配布場所の中身は消えないですが、それ以外は勝手に消えてくれます（リロードすると全消えします）。次の方を「超絶笑顔で」迎えましょう♡
-     </div>
-  </div>
+   <h2>このページの使い方</h2>
+   <div class="content">
+      <div class="step"><span class="step_num">Step1</span>記録者情報</div>
+      <div class="description_content">
+         まず、記録してくれるあなたの名前を記入してください。名字だけとかあだ名でもいいけど、誰かわかるようにしてね。
+      </div>
+      <div class="step"><span class="step_num">Step2</span>配布場所</div>
+      <div class="description_content">
+         ひかリングを配布した場所を選択してください。「その他」を選択した場合は、「その他特記事項」に配布場所を明記してください。
+      </div>
+      <div class="step" id="description_target_description"><span class="step_num">Step3</span>来場者情報</div>
+      <div class="description_content">
+         来年度以降のためのデータ分析・総括のため、来場者の客層記録もお願いしています。客層分類は以下になります。
+         <table class="design12">
+            <tr>
+               <th>客層</th>
+               <th>どんな人</th>
+            </tr>
+            <tr>
+               <td>ティーン</td>
+               <td>大学生ぐらいまで。</td>
+            </tr>
+            <tr>
+               <td>家族連れ（若）</td>
+               <td>小学生ぐらいまでを連れた家族</td>
+            </tr>
+            <tr>
+               <td>家族連れ（その他）</td>
+               <td>ティーン、家族連れ（若）以外の家族連れ。ただし、老夫婦は除く。</td>
+            </tr>
+            <tr>
+               <td>大人たち</td>
+               <td>家族連れ以外の大人。ソロも集団も。</td>
+            </tr>
+            <tr>
+               <td>シニア</td>
+               <td>おじいちゃん、おばあちゃん、老夫婦。</td>
+            </tr>
+         </table>
+         以上の分類になりますが、適宜、上手くやってください。
+      </div>
+      <div class="step"><span class="step_num">Step4</span>配布情報</div>
+      <div class="description_content">
+         <p>次に、お渡ししたひかリングの色と、その本数を記録してください。こちらは、色のボタンを押した回数がその色のひかリングの配布数となります。もし押し間違えた場合は、下の「色本数をリセット」を押すことでクリア出来ます。</p>
+         <p>また、「ボックス表示」のチェックを入れると、視認性がちょっとアガるかも。</p>
+      </div>
+      <div class="step"><span class="step_num">Step5</span>寄付額</div>
+      <div class="description_content">
+         次に、寄付額です。寄附額の欄は「配布情報」で入力された本数とリンクしているため、基本的に操作不要です。必要以上の額（ご寄付）を頂いたら入力してください。
+      </div>
+      <div class="step"><span class="step_num">Step6</span>その他特記事項</div>
+      <div class="description_content">
+         最後に、いわゆる備考欄です。特筆事項や感想があれば書いてください。
+      </div>
+      <div class="step"><span class="step_num">Step7</span>登録</div>
+      <div class="description_content">
+         あとは、書いてくれたデータをスプレッドシートに送りつけるだけです。成功すると下が緑色になって、失敗してると赤くなります。
+      </div>
+      <div class="step"><span class="step_num">Step8</span> 次の方〜</div>
+      <div class="description_content">
+         あとはこれの繰り返しで、Step2に戻ります。名前とボランティアのチェック、配布場所の中身は消えないですが、それ以外は勝手に消えてくれます（リロードすると全消えします）。次の方を「超絶笑顔で」迎えましょう♡
+      </div>
+   </div>
 
-  <h2>このサイト・記録について</h2>
-  <div class="content">
-     <p>昨年度に引き続き、今年度もひかリングの配布を行うこととなりました。昨年度のひかリングの位置づけが「寄付に対する返礼」であったのに対し、今年度は「各種企画・限定エリアへのパス」という位置づけになっており、それに伴って規模も10倍程度にパワーアップしています。</p>
-     <p>昨年度のひかリング入荷本数は1500本でした。記録についてはA4記録用紙26枚を要し、PCへのデータ入力は<?  output.append(array_name.getValues()[3][0]); ?>が1人でやって正味5,6時間ほどかかっため、管理・集計の観点より、登録フェーズから電子化したいわねという背景がありました。</p>
-     <p>同様の登録システムとしてGoogle Formが挙げられます。Google Formによる登録は保守運用が簡便な反面、「回答を送信しました」という画面遷移や入力文字の再利用性の無さなど、１人のユーザーが大量のレコードを送信するうえでエコではないシステムです。</p>
-     <p>そこで、今回はGoogleが提供しているクラウドベースのGoogle Apps Scriptを用いて登録フォームを独自に作成しました。JavaScriptベースのGoogle Script、HTML、CSS、JSという基本的なマークアップ・プログラミング言語を用いてコーディングを行うため、比較的容易に開発出来るほか、自由度や拡張性に富んでいます。この他、独自のWebサーバを立てるよりも経済的・時間的コスト、規模感を小さく抑えられるという面も、このプラットフォームを用いた利点とするところです。</p>
-     <p>学生の皆様には昨年も同様に記録をお願いしておりました。皆様のお力添えもあり、有意なデータ・分析を実行委員会に報告をすることが出来ました。今年度の規模拡大には昨年のデータが土台にある旨を実行委員会の<?  output.append(array_name.getValues()[4][0]); ?>特別顧問からも仰せつかっており、ひとえに、ご協力いただいた学生の皆様のおかげであると痛感しています。本当にありがとうございました。</p> 
-     <p>次年度以降のページェントのためにも、改めてのデータ記録を伏してお願い申し上げます。</p>
-     <p>なお、点灯期間（企画）終了後、このサイトは爆破します。</p>
-  </div>
+   <h2>このサイト・記録について</h2>
+   <div class="content">
+      <p>本サイトはひかリングの配布状況並びに集金額を記録するサイトです。</p>
+      <p>本事業を立ち上げた2022年度は1500本程度の規模であったため、全て紙媒体での記録を行っていました。しかし、記録にはA4用紙約30枚、集計では<?  output.append(array_name.getValues()[3][0]); ?>が1人でやって5,6時間ほどかかった経緯があり、昨年度、配布管理手法のIT化を実施いたしました。</p>
+      <p>本サイトはGoogleが提供しているアプリケーション開発プラットフォームであるGoogle Apps Scriptを用いて作成しております。HTML、CSS、JSという最も基本的な言語を用いてコーディングを行うため、容易に開発出来るほか、拡張性に富んでいます。この他、独自のWebサーバを立てるよりも経済的・時間的コスト、規模感を小さく抑えられるという面も、このプラットフォームを用いた利点です。</p>
+      <p>学生を主とし、実行委員会の皆様には昨年、一昨年も同様に記録をお願いしておりました。皆様のお力添えもあり、過去年において有意なデータ・分析を実行委員会に報告が出来ております。昨年度の規模拡大には一昨年のデータが土台にある旨を、実行委員会の<?  output.append(array_name.getValues()[4][0]); ?>特別顧問からも仰せつかっております。ひとえに、ご協力いただいた皆様のおかげであると痛感しています。本当にありがとうございました。</p> 
+      <p>次年度以降の事業継続のためにも、本サイトを用いた記録について改めて、伏してお願い申し上げます。</p>
+      <p>なお、点灯期間（企画）終了後、このサイトは爆破します will。</p>
+   </div>
 
-  <h2>GitHub・Reference</h2>
-  <div class="content">
-     <p>
-        <a href="https://github.com/Bunnoichi/hikaringu_2023" target="_blank">https://github.com/Bunnoichi/hikaringu_2023</a>
-     </p>
-     <p>
-        <a href="https://qiita.com/fujino-fpu/items/4a63cbde8e75e3fba9f4" target="_blank">https://qiita.com/fujino-fpu/items/4a63cbde8e75e3fba9f4</a><br>
-        <a href="https://hazime-style.com/?p=1473" target="_blank">https://hazime-style.com/?p=1473</a><br>
-        <a href="https://tonari-it.com/gas-web-appli-function-return/" target="_blank">https://tonari-it.com/gas-web-appli-function-return/</a><br>
-        <a href="https://tonari-it.com/gas-web-html-set-title/" target="_blank">https://tonari-it.com/gas-web-html-set-title/</a>
-     </p>
-  </div>
+   <h2>GitHub・Reference</h2>
+   <div class="content">
+      <p>
+         <a href="https://github.com/Bunnoichi/hikaringu_2023" target="_blank">https://github.com/Bunnoichi/hikaringu_2023</a>
+      </p>
+      <p>
+         <a href="https://qiita.com/fujino-fpu/items/4a63cbde8e75e3fba9f4" target="_blank">https://qiita.com/fujino-fpu/items/4a63cbde8e75e3fba9f4</a><br>
+         <a href="https://hazime-style.com/?p=1473" target="_blank">https://hazime-style.com/?p=1473</a><br>
+         <a href="https://tonari-it.com/gas-web-appli-function-return/" target="_blank">https://tonari-it.com/gas-web-appli-function-return/</a><br>
+         <a href="https://tonari-it.com/gas-web-html-set-title/" target="_blank">https://tonari-it.com/gas-web-html-set-title/</a>
+      </p>
+   </div>
 
-  <h2>謝辞</h2>
-  <div class="content">
-     <p>本システム構築にあたり、今年度ひかリング企画代表の<?  output.append(array_name.getValues()[0][0]); ?>さん、そしてデバッグやフィードバック等に付き合ってくれたユース部会のメンバーに感謝申し上げます。いつもありがとう。</p>
-     <p>また、プラットフォーム選定について助言をしてくれた高専時代の友人Nにも、この場を借りて感謝を申し上げます。</p>
-     <p>最後に、記録をいただく全ての学生メンバー、そして当日ボランティアの皆様に今一度の御礼を申し上げ、謝辞とします。</p>
-     <p id="author">作成担当　<?  output.append(array_name.getValues()[1][0]); ?></p>
-  </div>
+   <h2>謝辞</h2>
+   <div class="content">
+      <p>本システム構築にあたり、本システム作成時の企画代表である<?  output.append(array_name.getValues()[0][0]); ?>さん、そしてデバッグやフィードバック等に付き合ってくれたユース部会のメンバーに感謝を申し上げます。いつもありがとう。</p>
+      <p>また、プラットフォーム選定について助言をくれた高専時代の友人であり、筑波大学大学院のNにも、この場を借りて感謝を申し上げます。</p>
+      <p>最後に、記録をいただく全ての実行委員会メンバーの皆様に今一度の御礼を申し上げ、謝辞といたします。</p>
+      <p id="author">ユース部会 システム設計開発担当　<?  output.append(array_name.getValues()[1][0]); ?></p>
+   </div>
 
- </body>
+   </body>
 </html>
