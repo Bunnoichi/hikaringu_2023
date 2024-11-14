@@ -168,11 +168,6 @@
                   あおいろ
                   <span class="color_amount" id="color_B_amount"></span>
                </label>
-               <label id="color_G">
-                  <input type="radio" value="color_G" name="color_choice" onclick="color_counter('color_G')"/>
-                  みどりいろ
-                  <span class="color_amount" id="color_G_amount"></span>
-               </label>
                <label id="color_Ra">
                   <input type="radio" value="color_Ra" name="color_choice" onclick="color_counter('color_Ra')"/>
                   にじいろ
@@ -198,10 +193,6 @@
                   </div>
                </div>
                <div class="color_amount_flex_parent">
-                  <div class="color_amount_flex_child" id="color_amount_flex_child_G">
-                     <span id="color_amount_flex_child_G_span"></span>
-                     <span class="color_amount_flex_child_span">本</span>
-                  </div>
                   <div class="color_amount_flex_child" id="color_amount_flex_child_Ra">
                      <span id="color_amount_flex_child_Ra_span"></span>
                      <span class="color_amount_flex_child_span">本</span>
@@ -290,11 +281,6 @@
                <span id="earning_display_child_B_span"><?=  getEarnings()[2][0]; ?></span>
                <span class="earning_display_child_span">本 ／ 入荷数</span>
                <span id="earning_display_child_B_ArraivalQuantity"><?  output.append(array_in.getValues()[2][0]); ?></span>
-            </div>
-            <div class="earning_display_child" id="earning_display_child_G">
-               <span id="earning_display_child_G_span"><?=  getEarnings()[2][0]; ?></span>
-               <span class="earning_display_child_span">本 ／ 入荷数</span>
-               <span id="earning_display_child_G_ArraivalQuantity"><?  output.append(array_in.getValues()[2][0]); ?></span>
             </div>
             <div class="earning_display_child" id="earning_display_child_Ra">
                <span id="earning_display_child_Ra_span"><?=  getEarnings()[3][0]; ?></span>

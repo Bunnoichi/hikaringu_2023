@@ -78,11 +78,6 @@ function color_counter(color) {
       document.getElementById('color_amount_flex_child_B_span').textContent = Number(color_each_amount.textContent) + 1;
       break;
 
-    case 'color_G':
-      color_each_amount = document.getElementById('color_G_amount');
-      document.getElementById('color_amount_flex_child_G_span').textContent = Number(color_each_amount.textContent) + 1;
-      break;
-
   case 'color_W':
       color_each_amount = document.getElementById('color_W_amount');
       document.getElementById('color_amount_flex_child_W_span').textContent = Number(color_each_amount.textContent) + 1;
@@ -106,14 +101,12 @@ function color_counter(color) {
 function color_counter_reset(){
   document.getElementById('color_P_amount').textContent = '';
   document.getElementById('color_B_amount').textContent = '';
-  document.getElementById('color_G_amount').textContent = '';
   document.getElementById('color_Y_amount').textContent = '';
   document.getElementById('color_W_amount').textContent = '';
   document.getElementById('color_Ra_amount').textContent = '';
   document.getElementById('color_amount_flex_child_P_span').textContent = '';
   document.getElementById('color_amount_flex_child_Y_span').textContent = '';
   document.getElementById('color_amount_flex_child_B_span').textContent = '';
-  document.getElementById('color_amount_flex_child_G_span').textContent = '';
   document.getElementById('color_amount_flex_child_W_span').textContent = '';
   document.getElementById('color_amount_flex_child_Ra_span').textContent = '';
   document.getElementById('input_donation_amount').value = 0;
@@ -184,16 +177,14 @@ function input_and_errorCheck(){
   color_P_amount = document.getElementById('color_P_amount').textContent;
   color_Y_amount = document.getElementById('color_Y_amount').textContent;
   color_B_amount = document.getElementById('color_B_amount').textContent;
-  color_G_amount = document.getElementById('color_G_amount').textContent;
   color_W_amount = document.getElementById('color_W_amount').textContent;
   color_Ra_amount = document.getElementById('color_Ra_amount').textContent;
-  if (color_P_amount == 0 && color_Y_amount == 0 && color_B_amount == 0 && color_G_amount == 0 && color_W_amount == 0 && color_Ra_amount == 0) {
+  if (color_P_amount == 0 && color_Y_amount == 0 && color_B_amount == 0 && color_W_amount == 0 && color_Ra_amount == 0) {
       alert_value.push('配布色本数');
   } else {
   return_value.push(color_P_amount);
   return_value.push(color_Y_amount);
   return_value.push(color_B_amount);
-  return_value.push(color_G_amount);
   return_value.push(color_W_amount);
   return_value.push(color_Ra_amount);
   }
@@ -279,7 +270,6 @@ google.script.run
         var display_R = document.getElementById('earning_display_child_R_span');
         var display_Y = document.getElementById('earning_display_child_Y_span');
         var display_B = document.getElementById('earning_display_child_B_span');
-        var display_B = document.getElementById('earning_display_child_G_span');
         var display_Ra = document.getElementById('earning_display_child_Ra_span');
         var display_W = document.getElementById('earning_display_child_W_span');
         
