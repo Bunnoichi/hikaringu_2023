@@ -152,8 +152,8 @@ function input_and_errorCheck(){
       return_value.push(value);
   }
 
-  // 当日ボランティアか
-  return_value.push(String(document.getElementById(id_name_array[1]).checked));
+  // // 当日ボランティアか
+  // return_value.push(String(document.getElementById(id_name_array[1]).checked));
 
   // 記録日時を配列に格納
   return_value.push(now.getFullYear() + "-" + (Number(now.getMonth()) + 1)  + "-" + now.getDate());
