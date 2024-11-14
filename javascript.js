@@ -194,8 +194,8 @@ function input_and_errorCheck(){
   return_value.push(color_Y_amount);
   return_value.push(color_B_amount);
   return_value.push(color_G_amount);
-  return_value.push(color_W_amount);
   return_value.push(color_Ra_amount);
+  return_value.push(color_W_amount);
   }
 
   // 特記事項を記録
